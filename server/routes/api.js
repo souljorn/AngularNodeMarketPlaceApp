@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const Accounts   = require('../../model/accounts'); // get our mongoose model
 const app = require('../../server');
 
+var token;
 // Get users diplays all the users if you hit the api/users endpoint
 router.get('/users', (req, res) => {
   Accounts.find({}, function(err, accounts) {
@@ -46,7 +47,7 @@ Accounts.findOne({email: req.body.email})
       //Todo add payload to the token to use for getting user profile later
       //Todo Will want to attach a user to the token so only the user attached to the token
       //Todo can access their profile
-      var token = jwt.sign(payload, app.get('superSecret'), {
+      token = jwt.sign(payload, app.get('superSecret'), {
         expiresIn: '180m' // expires in 3hours
       });
 
@@ -70,6 +71,40 @@ Accounts.findOne({email: req.body.email})
     });
   });
 });
+
+//This is an api endpoint that verifies that a token is valid and returns the users's email in a response
+router.post('/user', (req, res) => {
+  //token embedded with header
+  // check header or url parameters or post parameters for token
+  var token = req.headers['x-access-token'];
+
+  //decode token
+
+  if (token) {
+    // verifies secret and checks exp
+    var decoded = jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });
+      } else {
+        // if everything is good, save to request for use in other routes
+        return res.status(200).send({
+          success: true,
+          message: 'Good token provided.',
+          payload: decoded
+        });
+      }
+    });
+
+  } else {
+
+    // if there is no token
+    // return an error
+    return res.status(403).send({
+      success: false,
+      message: 'No token provided.'
+    });
+  }
+ });
 
 // // route middleware to verify a token
 // apiRoutes.use(function(req, res, next) {
