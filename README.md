@@ -60,10 +60,17 @@ This command reads the current branch you are on and pushes it to the remote bra
 
 `git push origin $(git_current_branch)`
 
+or if your upstream branch is set
+
+`git push`
+
 ## Creating a new branch and setting its upstream
 
-This creates a new branch and sets the up stream for that branch. Where origin/branch is where the branch will be pushed to.
-It prevents you from having to set the upstream branch when you push
+This creates a new branch and sets the up stream for that branch. 
 
-`git branch -u origin/my-branch`
+1)`git checkout -b branch-name-story-number`
+
+2)`git push --set-upstream origin $(git_current_branch)`
+
+
 
