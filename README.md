@@ -35,6 +35,7 @@ Make sure you are merging master into your branch so we don't have merge conflic
 What this does is makes sure your branch is up to date with master and that your code can be added into master when we do a pull request.
 
 1)With your branch checkeed out get all the updated branches
+
 `git fetch --all`
 
 2)Stage all your files for commit
@@ -44,6 +45,7 @@ What this does is makes sure your branch is up to date with master and that your
 `git commit -m "Your Message"`
 
 3)Merge master into your current branch
+
 `git merge origin/master`
 
 4)Resolve any merge conflicts if they exist(made really with webstorm)
