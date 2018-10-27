@@ -38,7 +38,9 @@ What this does is makes sure your branch is up to date with master and that your
 `git fetch --all`
 
 2)Stage all your files for commit
+
 `git add .`
+
 `git commit -m "Your Message"`
 
 3)Merge master into your current branch
