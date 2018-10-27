@@ -72,7 +72,21 @@ or if your upstream branch is set
 
 `git push`
 
+6) After pushing go to your branch on gitHub and create a pull request. Message Tim on Slack and I will look it over and merge it into master. 
 
+## If you started work when on master branch and need to move all your work to a new branch
 
+1)Store your changes
 
+`git stash`
+
+2)Create a new branch
+
+`git checkout -b branch-name-story-number`
+
+`git push --set-upstream origin $(git_current_branch)`
+
+3)Move your changes to the new branch
+
+`git stash pop`
 
