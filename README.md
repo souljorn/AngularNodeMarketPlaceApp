@@ -50,5 +50,13 @@ What this does is makes sure your branch is up to date with master and that your
 
 4)Resolve any merge conflicts if they exist(made really with webstorm)
 
+if you had conflicts and resolved them you must append the commit by using
+
+`git commit`
+
 5)Push your commits
+
+This command reads the current branch you are on and pushes it to the remote branch. Do not change $(git_current_branch) 
+
+`git push origin $(git_current_branch)`
 
