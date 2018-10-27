@@ -16,5 +16,12 @@ module.exports = mongoose.model('items', new Schema({
   price: {
     type: Number,
     required: true
+  },
+  seller: {
+    type: String,
+    required: true
+  },
+  category:{
+    type: String
   }
 }));
