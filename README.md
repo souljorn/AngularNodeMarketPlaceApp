@@ -4,11 +4,14 @@
 
 1)install angular cli
 `npm install -g @angular/cli`
-3)Check to make sure npm is not in production mode. This prevents dev dependincies being installed in your node modules. 
+
+2)Check to make sure npm is not in production mode. This prevents dev dependincies being installed in your node modules. 
 `npm config get production` 
-4)Set the config to development mode
+
+3)Set the config to development mode
 `npm config set -g production false`
-2)install all npm dependencies
+
+4)install all npm dependencies
 `npm install`
 
 ## To Run Project
