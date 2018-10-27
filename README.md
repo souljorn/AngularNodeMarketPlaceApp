@@ -22,6 +22,8 @@
 2)Run the node js server
 `node server.js`
 
+3)Open http://localhost:8080 in your browser
+
 Note: If you want to make the build process easier, download webstorm from jet brains and set up the run configurations for node and angular. 
 Talk to Tim if you need help setting it up
 
