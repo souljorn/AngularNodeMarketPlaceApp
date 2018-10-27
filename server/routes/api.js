@@ -13,7 +13,7 @@ var token;
 //displays all the users if you hit the api/users endpoint
 router.get('/users', (req, res) => {
   Accounts.find({}, function(err, accounts) {
-  res.json(accounts);
+  res.status(200).json(accounts);
   JSON.parse(JSON.stringify(accounts));
   console.log("Users api hit");
   console.log(JSON.parse(JSON.stringify(accounts)));
@@ -32,7 +32,7 @@ router.post('/createUser', (req, res) => {
 
   Accounts.create(data).then(user => {
     if(user)
-      res.json(user);
+      res.status(200).json(user);
   })
     .catch(err => {
       res.status(500).send(err);
@@ -55,7 +55,7 @@ router.post('/item', (req, res) => {
 
   Items.create(data).then(item => {
     if(item)
-      res.json(item);
+      res.status(200).json(item);
   })
     .catch(err => {
       res.status(500).send(err);
@@ -65,11 +65,38 @@ router.post('/item', (req, res) => {
 //**********Get all items
 router.get('/item', (req, res) => {
   Items.find({}, function(err, items) {
-    res.json(items);
+    res.status(200).json(items);
     JSON.parse(JSON.stringify(items));
     console.log("Users api hit");
     console.log(JSON.parse(JSON.stringify(items)));
   });
+});
+
+//*******Get a Single item by title***********
+router.get('/item/title/:title', (req, res) => {
+  const requestedItem = req.params['title'];
+
+  //res.send({ title: requestedItem });
+  Items.findOne({title: requestedItem})
+    .exec()
+    .then(item => {
+      //if the user doesn't exits fail
+      if(!item){
+        console.log("item does not exist");
+        return res.status(401).json({
+          message: 'item does not exist'
+        });
+      }
+      else{
+        return res.status(200).json(item);
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err,
+        message: 'item does not exits'
+      });
+    });
 });
 
 //*************************Login Api**************************************************
