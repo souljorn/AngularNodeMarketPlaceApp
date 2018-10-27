@@ -1,5 +1,59 @@
-<p>
-  <b>email:</b> gator@ufl.edu <b>password:</b> password
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="marketplaceStyle.css" type= "text/css">
+</head>
+<body>
+<div class="container">
 
 
+  <div class="row" ng-controller="AccountsController">
+    <div class="col-md-6">
+      <div class="input-group" id="searchDescription">
+        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+        <input type="text" size = 200 class="form-control" placeholder="Description" ng-model="query">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="input-group" id="searchLocation">
+        <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-search"></span></span>
+        <input type="text" size = 200 class="form-control" placeholder="Location" ng-model="query">
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="vertical-menu">
+        <a href="#" class="active">Shop For</a>
+        <a href="#">Tickets</a>
+        <a href="#">Textbooks</a>
+        <a href="#">Apartment/Dorm</a>
+        <a href="#">Miscellaneous</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="jumbotron">
+        <h2>Insert Listing</h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="jumbotron">
+        <h2> Insert Listing </h2>
+      </div>
+
+      <div class="col-md-4">
+        <div class="jumbotron">
+          <h2> Insert Listing </h2>
+        </div>
+      </div>
+    </div>
+
+</div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+
+</body>
+</html>
