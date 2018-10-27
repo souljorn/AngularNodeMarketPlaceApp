@@ -1,0 +1,26 @@
+h2 {
+	color: #1069A4;
+	margin-bottom: 15px;
+}
+
+#login-info {
+	text-align: center;
+}
+
+.form-control {
+	width: 25%;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-bottom: 8px;
+}
+
+.btn-warning {
+	border-color: black;
+	margin-bottom: 8px;
+}
+
+
+hr {
+	border-color: black;
+	margin-bottom: 0px;
+}
