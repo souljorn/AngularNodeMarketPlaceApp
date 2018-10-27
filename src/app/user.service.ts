@@ -17,8 +17,8 @@ export class UserService {
   }
 
   //Create a user
-  createUser(item: Item):Observable<Accounts> {
-    return this._http.post<Accounts>('api/users', item)
+  createUser(account: Accounts):Observable<Accounts> {
+    return this._http.post<Accounts>('api/users', account)
   }
 
 }

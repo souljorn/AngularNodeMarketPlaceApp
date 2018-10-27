@@ -15,6 +15,11 @@ export class ItemService {
     return this._http.get<Item[]>('api/item')
   }
 
+  //Gets all users
+  getItem():Observable<Item> {
+    return this._http.get<Item>('api/item')
+  }
+
   //Create a user
   createItem(item: Item):Observable<Item> {
     return this._http.post<Item>('api/item', item)
