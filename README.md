@@ -29,6 +29,14 @@ Talk to Tim if you need help setting it up
 
 Run `ng generate component component-name` to generate a new component.
 
+## Creating a new branch and setting its upstream
+
+This creates a new branch and sets the up stream for that branch. Do not change $(git_current_branch) it takes the name of your current branch.
+
+1)`git checkout -b branch-name-story-number`
+
+2)`git push --set-upstream origin $(git_current_branch)`
+
 ## Updating branch with master before pushing commits
 
 Make sure you are merging master into your branch so we don't have merge conflict.
@@ -64,13 +72,7 @@ or if your upstream branch is set
 
 `git push`
 
-## Creating a new branch and setting its upstream
 
-This creates a new branch and sets the up stream for that branch. 
-
-1)`git checkout -b branch-name-story-number`
-
-2)`git push --set-upstream origin $(git_current_branch)`
 
 
 
