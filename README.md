@@ -22,8 +22,6 @@
 2)Run the node js server
 `node server.js`
 
-3)Open http://localhost:8080 in your browser
-
 Note: If you want to make the build process easier, download webstorm from jet brains and set up the run configurations for node and angular. 
 Talk to Tim if you need help setting it up
 
@@ -31,5 +29,22 @@ Talk to Tim if you need help setting it up
 
 Run `ng generate component component-name` to generate a new component.
 
+## Updating branch with master before pushing commits
 
+Make sure you are merging master into your branch so we don't have merge conflict.
+What this does is makes sure your branch is up to date with master and that your code can be added into master when we do a pull request.
+
+1)With your branch checkeed out get all the updated branches
+`git fetch --all`
+
+2)Stage all your files for commit
+`git add .`
+`git commit -m "Your Message"`
+
+3)Merge master into your current branch
+`git merge origin/master`
+
+4)Resolve any merge conflicts if they exist(made really with webstorm)
+
+5)Push your commits
 
