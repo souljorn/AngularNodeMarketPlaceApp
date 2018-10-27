@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ItemComponent } from './item/item.component';
 import {UserService} from './user.service';
 import {ItemService} from './item.service';
+import { SearchItemByTitleComponent } from './search-item-by-title/search-item-by-title.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ItemService} from './item.service';
     LoginSuccessComponent,
     HomeComponent,
     ProfileComponent,
-    ItemComponent
+    ItemComponent,
+    SearchItemByTitleComponent
 
   ],
   imports: [

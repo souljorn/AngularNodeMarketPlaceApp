@@ -10,19 +10,19 @@ export class ItemService {
 
   constructor(private _http: HttpClient) { }
 
-  //Gets all users
+  //Gets all items
   getItems():Observable<Item[]> {
-    return this._http.get<Item[]>('api/item')
+    return this._http.get<Item[]>('api/item');
   }
 
-  //Gets all users
-  getItem():Observable<Item> {
-    return this._http.get<Item>('api/item')
+  //Gets a single item by title
+  getItem(title: string):Observable<Item> {
+    return this._http.get<Item>('api/item/title/' + title);
   }
 
-  //Create a user
+  //Create an item
   createItem(item: Item):Observable<Item> {
-    return this._http.post<Item>('api/item', item)
+    return this._http.post<Item>('api/item', item);
   }
 
 }
