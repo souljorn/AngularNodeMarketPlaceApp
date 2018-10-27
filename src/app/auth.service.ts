@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
 
+
+
 // Name of the token in local storage
 export const TOKEN_NAME = 'currentUser';
 

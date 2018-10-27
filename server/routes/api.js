@@ -3,16 +3,74 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const Accounts   = require('../../model/accounts'); // get our mongoose model
 const app = require('../../server');
-
+const bodyParser = require('body-parser');
+const Items = require('../../model/items');
 var token;
-// Get users diplays all the users if you hit the api/users endpoint
+
+
+
+//*********************User Api Functions*************************************
+//displays all the users if you hit the api/users endpoint
 router.get('/users', (req, res) => {
   Accounts.find({}, function(err, accounts) {
   res.json(accounts);
   JSON.parse(JSON.stringify(accounts));
+  console.log("Users api hit");
+  console.log(JSON.parse(JSON.stringify(accounts)));
 });
 });
 
+//********Create new user*******
+router.post('/createUser', (req, res) => {
+  let data = new Accounts(
+    {
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password
+    }
+  );
+
+  Accounts.create(data).then(user => {
+    if(user)
+      res.json(user);
+  })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+});
+
+//*************************Item API**************************************************
+
+//********create items***************
+router.post('/item', (req, res) => {
+  let data = new Items(
+    {
+      title: req.body.title,
+      description: req.body.description,
+      price: req.body.price
+    }
+  );
+
+  Items.create(data).then(item => {
+    if(item)
+      res.json(item);
+  })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+});
+
+//**********Get all items
+router.get('/item', (req, res) => {
+  Items.find({}, function(err, items) {
+    res.json(items);
+    JSON.parse(JSON.stringify(items));
+    console.log("Users api hit");
+    console.log(JSON.parse(JSON.stringify(items)));
+  });
+});
+
+//*************************Login Api**************************************************
 //This is the Login API that checks credentials and creates a session token
 //The token is stored in local memory on the client computer and can be checked any time.
 router.post('/login', (req, res, next) => {
@@ -72,6 +130,7 @@ Accounts.findOne({email: req.body.email})
   });
 });
 
+//************************************Token Validation*******************************
 //This is an api endpoint that verifies that a token is valid and returns the users's email in a response
 router.post('/user', (req, res) => {
   //token embedded with header
