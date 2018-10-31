@@ -11,13 +11,13 @@ import {Item} from '../Item';
 })
 export class SearchItemByTitleComponent implements OnInit {
 
+
   item: Item;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
   }
-
 
   //Get am item by title
   getAnItemByTitle(title:string){
