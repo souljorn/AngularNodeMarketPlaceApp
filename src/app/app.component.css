@@ -22,3 +22,15 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+nav ul{
+  padding-left: 50px;
+}
+
+.body{
+  margin: 0;
+  padding: 0;
+}
+.title {
+  padding-left: 65px;
+}
