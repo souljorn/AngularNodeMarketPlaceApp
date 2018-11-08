@@ -12,17 +12,17 @@ export class ItemService {
 
   //Gets all items
   getItems():Observable<Item[]> {
-    return this._http.get<Item[]>('api/item');
+    return this._http.get<Item[]>('api/items');
   }
 
   //Gets a single item by title
   getItem(title: string):Observable<Item> {
-    return this._http.get<Item>('api/item/title/' + title);
+    return this._http.get<Item>('api/items/title/' + title);
   }
 
   //Create an item
   createItem(item: Item):Observable<Item> {
-    return this._http.post<Item>('api/item', item);
+    return this._http.post<Item>('api/items', item);
   }
 
 }
