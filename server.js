@@ -13,11 +13,13 @@ mongoose.connect(config.db.uri); // connect to database
 //Export express app for other files to use
 var app = module.exports = express();
 app.set('superSecret', config.secret); // secret variable
+app.set('URI', config.db.uri); // URI variable
 
 //import routes
 const accountRoute = require('./routes/accounts');
 const itemsRoute = require('./routes/items');
 const authRoute = require('./routes/auth');
+const imageRoute = require('./routes/images');
 
 // Parsers
 app.use(bodyParser.json());
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'dist/TokenPrototype/')));
 app.use('/api', accountRoute);
 app.use('/api', itemsRoute);
 app.use('/api', authRoute);
+app.use('/api', imageRoute);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {

@@ -2,7 +2,7 @@
     <div class="row">
     <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
       <div class="thumbnail">
-        <img src="https://unsplash.it/800/600?image=39">
+        <img src="http://localhost:8080/api/image/{{item.image}}">
         <div class="caption">
           <h4>{{item.title}}</h4>
           <p>{{item.description}}</p>
