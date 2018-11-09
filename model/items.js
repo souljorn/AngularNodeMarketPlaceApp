@@ -23,5 +23,8 @@ module.exports = mongoose.model('items', new Schema({
   },
   category:{
     type: String
+  },
+  image: {
+    type: String
   }
 }));
