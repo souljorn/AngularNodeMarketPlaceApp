@@ -19,6 +19,7 @@ module.exports = mongoose.model('accounts', new Schema({
     required: true
   },
   items_purchased: Array,
-  items_sold: Array
+  items_sold: Array,
+  image: String
 }));
 
