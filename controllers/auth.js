@@ -78,64 +78,25 @@ exports.login = (req, res, next) => {
 exports.verifyUser = (req, res) => {
   //token embedded with header
   // check header or url parameters or post parameters for token
-  var token = req.headers['x-access-token'];
+  let token = req.headers['authorization'];
+  if(!token)
+    return res.status(401).json({
+      message: "No token, Please Login"
+    })
 
-  //decode token
+  else if (token) {
 
-  if (token) {
-    // verifies secret and checks exp
-    var decoded = jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+    //decode token
+    token = token.replace('Bearer ', '');
+    console.log(token);
+    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
       if (err) {
-        return res.json({ success: false, message: 'Failed to authenticate token.' });
+        return res.json({Error:err, message:"Error"});
       } else {
         // if everything is good, save to request for use in other routes
-        return res.status(200).send({
-          success: true,
-          message: 'Good token provided.',
-          payload: decoded
-        });
+        return res.status(203).json({ success: true, message: 'Authenticated User.', decoded: decoded });
       }
-    });
-
-  } else {
-
-    // if there is no token
-    // return an error
-    return res.status(403).send({
-      success: false,
-      message: 'No token provided.'
     });
   }
 };
 
-// // route middleware to verify a token
-// apiRoutes.use(function(req, res, next) {
-//
-//   // check header or url parameters or post parameters for token
-//   var token = req.body.token || req.query.token || req.headers['x-access-token'];
-//
-//   // decode token
-//   if (token) {
-//
-//     // verifies secret and checks exp
-//     jwt.verify(token, app.get('superSecret'), function(err, decoded) {
-//       if (err) {
-//         return res.json({ success: false, message: 'Failed to authenticate token.' });
-//       } else {
-//         // if everything is good, save to request for use in other routes
-//         req.decoded = decoded;
-//         next();
-//       }
-//     });
-//
-//   } else {
-//
-//     // if there is no token
-//     // return an error
-//     return res.status(403).send({
-//       success: false,
-//       message: 'No token provided.'
-//     });
-//
-//   }
-// });

@@ -21,6 +21,7 @@ import { SearchItemByTitleComponent } from './search-item-by-title/search-item-b
 import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
 import { UploadItemComponent } from './upload-item/upload-item.component';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import { UploadItemComponent } from './upload-item/upload-item.component';
     ItemComponent,
     SearchItemByTitleComponent,
     ItemCardsComponent,
+    UploadItemComponent,
     ProfileCreateFormComponent,
-    UploadItemComponent
+    ItemPageComponent
 
   ],
   imports: [
