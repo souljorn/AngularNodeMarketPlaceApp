@@ -1,0 +1,55 @@
+#item-image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#top {
+  margin-top: 15px;
+}
+
+body {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#hr-one {
+  display: block;
+  height: 1px;
+  border-top: 1px solid black;
+}
+
+.btn {
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 12px;
+  margin-bottom: 15px;
+}
+
+#info {
+  width: 50%;
+}
+
+#hr-two {
+  margin-top: 40px;
+  display: block;
+  height: 1px;
+  border-top: 1px solid black;
+}
+
+#location {
+  margin: 0 auto;
+  color: #1069A4;
+}
+
+#map {
+  margin: 0 auto;
+  margin-top: 15px;
+  border: 1px solid black;
+}
+
+#title {
+  margin-top: 15px;
+  color: #1069A4;
+}
+
