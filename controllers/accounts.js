@@ -29,4 +29,28 @@ exports.createAccount = (req, res) => {
     });
 };
 
+exports.getUser = (req, res) => {
+  const requestedUser = req.params['email'];
+
+  Accounts.findOne({email: requestedUser})
+    .exec()
+    .then(user => {
+      //if the user doesn't exits fail
+      if(!user){
+        console.log("user does not exist");
+        return res.status(401).json({
+          message: 'user does not exist'
+        });
+      }
+      else{
+        return res.status(200).json(user);
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err,
+        message: 'user does not exits'
+      });
+    });
+}
 

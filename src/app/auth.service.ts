@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {Item} from './Item';
+import {Observable} from 'rxjs';
 
 
 
@@ -39,5 +41,9 @@ export class AuthenticationService {
   // remove user from local storage to log user out
   logout() {
     localStorage.removeItem('currentUser');
+  }
+
+  verifyUser():Observable<any> {
+    return this.http.get<any>('/api/verify');
   }
 }
