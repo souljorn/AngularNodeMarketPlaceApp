@@ -20,6 +20,7 @@ import {ItemService} from './item.service';
 import { SearchItemByTitleComponent } from './search-item-by-title/search-item-by-title.component';
 import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
+import { UploadItemComponent } from './upload-item/upload-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProfileCreateFormComponent } from './profile-create-form/profile-create
     ItemComponent,
     SearchItemByTitleComponent,
     ItemCardsComponent,
-    ProfileCreateFormComponent
+    ProfileCreateFormComponent,
+    UploadItemComponent
 
   ],
   imports: [
