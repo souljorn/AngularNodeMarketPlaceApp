@@ -2,20 +2,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
 
-//Allows for app instance to be passed to other modules
-const app = module.exports = express();
 
-// API file for interacting with MongoDB
-const api = require('./server/routes/api');
-var config = require('./config'); // get our config file
-var User   = require('./model/accounts'); // get our mongoose model
-var mongoose    = require('mongoose');
-var morgan      = require('morgan');
 
 //config
+const config = require('./config'); // get our config file
 mongoose.connect(config.db.uri); // connect to database
+//Export express app for other files to use
+var app = module.exports = express();
 app.set('superSecret', config.secret); // secret variable
+app.set('URI', config.db.uri); // URI variable
+
+//import routes
+const accountRoute = require('./routes/accounts');
+const itemsRoute = require('./routes/items');
+const authRoute = require('./routes/auth');
+const imageRoute = require('./routes/images');
 
 // Parsers
 app.use(bodyParser.json());
@@ -27,8 +31,11 @@ app.use(morgan('dev'));
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist/TokenPrototype/')));
 
-// API location
-app.use('/api', api);
+// API routes
+app.use('/api', accountRoute);
+app.use('/api', itemsRoute);
+app.use('/api', authRoute);
+app.use('/api', imageRoute);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {

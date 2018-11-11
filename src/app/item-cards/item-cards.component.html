@@ -1,8 +1,8 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-18 col-sm-6 col-md-3" *ngFor="let item of items">
+
+    <div class="row">
+    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
       <div class="thumbnail">
-        <img src="http://placehold.it/500x250/EEE">
+        <img src="http://localhost:8080/api/image/{{item.image}}">
         <div class="caption">
           <h4>{{item.title}}</h4>
           <p>{{item.description}}</p>
@@ -10,5 +10,6 @@
         </div>
       </div>
     </div>
-  </div><!--/row-->
-</div><!--/container -->
+    </div>
+
+
