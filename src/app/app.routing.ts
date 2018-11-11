@@ -7,6 +7,7 @@ import {AuthGuard} from './auth.guard';
 import {ProfileComponent} from './profile/profile.component';
 import {ItemComponent} from './item/item.component';
 import {ProfileCreateFormComponent} from './profile-create-form/profile-create-form.component';
+import {ItemPageComponent} from './item-page/item-page.component';
 
 // This is where all the routes are set
 // canActivate[AuthGuard] blocks any route from any user that is not logged in
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'item', component: ItemComponent },
   { path: 'profileCreate', component: ProfileCreateFormComponent },
+  { path: 'itemPage', component: ItemPageComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
