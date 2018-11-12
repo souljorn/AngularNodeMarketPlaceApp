@@ -22,6 +22,7 @@ import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
 import { UploadItemComponent } from './upload-item/upload-item.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { MessengerComponentComponent } from './messenger-component/messenger-component.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ItemPageComponent } from './item-page/item-page.component';
     ItemCardsComponent,
     UploadItemComponent,
     ProfileCreateFormComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    MessengerComponentComponent
 
   ],
   imports: [
