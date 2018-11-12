@@ -1,0 +1,66 @@
+#item-image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#top {
+  margin-top: 15px;
+}
+
+body {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#hr-one {
+  display: block;
+  height: 1px;
+  border-top: 1px solid black;
+}
+
+
+.btn-full
+{
+  margin: 25px;
+  padding: 8px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 200px;
+  background-color: #0b1e4ad9;
+  color: #fff;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.btn-full:hover, .btn-full:active
+{
+  background-color: #4e7be4;
+}
+
+#info {
+  width: 50%;
+}
+
+#hr-two {
+  margin-top: 40px;
+  display: block;
+  height: 1px;
+  border-top: 1px solid black;
+}
+
+#location {
+  margin: 0 auto;
+  color: #1069A4;
+}
+
+#map {
+  margin: 0 auto;
+  margin-top: 15px;
+  border: 1px solid black;
+}
+
+#title {
+  margin-top: 15px;
+  color: #1069A4;
+}
+
