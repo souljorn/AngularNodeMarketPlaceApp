@@ -17,6 +17,8 @@ export class ProfileCreateFormComponent implements OnInit {
   response;
   userImage: string;
   user;
+  imageFilename;
+  imageObject;
 
   constructor(private http: HttpClient,
               private imageService: ImageService,
@@ -27,33 +29,25 @@ export class ProfileCreateFormComponent implements OnInit {
   ngOnInit() {
 
     this.authService.verifyUser().pipe(first()).subscribe(res => {
-
       this.response = res;
       console.log(this.response);
-      console.log(this.response.message);
       if(this.response.message != 'Error'){
+        console.log("Get email");
         this.email = this.response.decoded.email;
         this.loadUserProfile();
+      }else {
+        this.userImage = "../../src/assets/profile.jpg";
+        console.log("Set basic image");
       }
   })
-
-    if(this.response.message === 'Error')
-    {
-      console.log("setting image");
-      this.userImage = "../../src/assets/profile.jpg"
-    }
-    else {
-      this.email = this.response.decoded.email;
-      this.loadUserProfile();
-    }
-
   }
 
   loadUserProfile(){
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       console.log("loading user profile");
       this.user = res;
-      this.userImage = this.user.image;
+      this.userImage = "http://localhost:8080/api/image/" + this.user.image;
+      console.log(this.user.image);
     })
   }
 
@@ -70,7 +64,11 @@ export class ProfileCreateFormComponent implements OnInit {
     fd.append('file',  this.selectedFile, this.selectedFile.name);
     this.http.post('/api/image', fd)
       .subscribe(res => {
-        console.log(res); // handle event here
+        console.log(res);
+        this.imageObject = res;
+        this.imageFilename = this.imageObject.file.filename;
+        this.userImage = "http://localhost:8080/api/image/" + this.imageFilename;
+        // handle event here
       });
     //get image back to pace in preview
 
