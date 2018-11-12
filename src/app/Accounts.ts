@@ -3,4 +3,6 @@ export class Accounts {
   username: string;
   password: string;
   image: string;
+  firstname: string;
+  lastname: string;
 }
