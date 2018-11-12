@@ -1,0 +1,92 @@
+
+.row{
+  text-align: center;
+}
+#itemInfo{
+  margin-top: 43px;
+  text-align-all: center;
+  margin-left: 10%;
+  height: 150%;
+  width: 140%;
+
+}
+#itemPicture{
+  margin-bottom: 5px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+.insideBorder{
+  margin-left: 20%;
+  margin-bottom: 5%;
+  border: 1px solid navy;
+}
+#file{
+  margin-left: 147px;
+}
+h1{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 40px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+
+h2{
+  color: navy;
+  margin-bottom: 5px;
+  margin-top: 6px;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+}
+h3{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+h4{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+h5{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+#submit{
+  width: 140px;
+  height: 75%;
+  margin-left: 168px;
+  margin-bottom: 20px;
+}
+.infoForms #categories{
+
+}
+.infoForms input{
+  margin-bottom: 10px;
+  width: 400px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.addressSize1 input{
+  margin-bottom: 10px;
+  width: 400px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.addressSize2 input{
+  margin-bottom: 10px;
+  width: 200px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.moneyInput input{
+  width:392px;
+}

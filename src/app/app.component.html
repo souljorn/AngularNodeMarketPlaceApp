@@ -8,7 +8,10 @@
     <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
     <li><a routerLink="/profileCreate">Profile Create</a></li>
     <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
+    <li><a routerLink="/itemCreate">Upload Item</a></li>
+    <li><a routerLink="/itemPage">Item Page</a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
+
 
