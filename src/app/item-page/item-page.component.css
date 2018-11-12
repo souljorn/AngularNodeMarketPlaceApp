@@ -19,11 +19,22 @@ body {
   border-top: 1px solid black;
 }
 
-.btn {
-  border: 1px solid black;
-  margin: 0 auto;
-  margin-top: 12px;
-  margin-bottom: 15px;
+
+.btn-full
+{
+  margin: 25px;
+  padding: 8px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 200px;
+  background-color: #0b1e4ad9;
+  color: #fff;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+}
+
+.btn-full:hover, .btn-full:active
+{
+  background-color: #4e7be4;
 }
 
 #info {
