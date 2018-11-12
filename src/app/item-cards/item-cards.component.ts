@@ -4,6 +4,7 @@ import {first} from 'rxjs/operators';
 import {Item} from '../Item';
 import {ImageService} from '../image.service';
 
+
 @Component({
   selector: 'app-item-cards',
   templateUrl: './item-cards.component.html',
@@ -13,16 +14,22 @@ export class ItemCardsComponent implements OnInit {
 
   items: Array<Item>;
   image: File;
+  show: boolean = false;
 
   constructor(
-    private itemService:ItemService,
-    private imageService:ImageService
+    private itemService: ItemService,
+    private imageService: ImageService,
+
   ) { }
 
   ngOnInit() {
     this.itemService.getItems().pipe(first()).subscribe(res => this.items = res);
   }
-
+  testAlert(str) {
+    // alert('testing on click of div');
+    this.show = true;
+    console.log(str);
+  }
   getItemImage(filename : string){
    this.imageService.getImage(filename).pipe().subscribe(res => this.image = res);
   }

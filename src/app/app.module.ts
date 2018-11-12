@@ -21,6 +21,7 @@ import { SearchItemByTitleComponent } from './search-item-by-title/search-item-b
 import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ItemPageComponent } from './item-page/item-page.component';
     SearchItemByTitleComponent,
     ItemCardsComponent,
     ProfileCreateFormComponent,
-    ItemPageComponent
+    ItemPageComponent,
+    ModalLoginComponent
 
   ],
   imports: [
