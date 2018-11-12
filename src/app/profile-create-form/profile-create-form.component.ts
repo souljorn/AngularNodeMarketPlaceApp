@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ImageService} from '../image.service';
+import {UserService} from '../user.service';
+import {first} from 'rxjs/operators';
+import {AuthenticationService} from '../auth.service';
 
 @Component({
   selector: 'app-profile-create-form',
@@ -8,9 +12,43 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProfileCreateFormComponent implements OnInit {
   selectedFile: File = null;
-  constructor(private http: HttpClient) { }
+  ProileImagePreview: string;
+  email;
+  response;
+  userImage: string;
+  user;
+  imageFilename;
+  imageObject;
+
+  constructor(private http: HttpClient,
+              private imageService: ImageService,
+              private userService: UserService,
+              private authService: AuthenticationService
+  ) {}
 
   ngOnInit() {
+
+    this.authService.verifyUser().pipe(first()).subscribe(res => {
+      this.response = res;
+      console.log(this.response);
+      if(this.response.message != 'Error'){
+        console.log("Get email");
+        this.email = this.response.decoded.email;
+        this.loadUserProfile();
+      }else {
+        this.userImage = "../../src/assets/profile.jpg";
+        console.log("Set basic image");
+      }
+  })
+  }
+
+  loadUserProfile(){
+    this.userService.getUser(this.email).pipe(first()).subscribe(res => {
+      console.log("loading user profile");
+      this.user = res;
+      this.userImage = "http://localhost:8080/api/image/" + this.user.image;
+      console.log(this.user.image);
+    })
   }
 
   onFileChanged(event) {
@@ -21,11 +59,19 @@ export class ProfileCreateFormComponent implements OnInit {
   onUpload() {
     // this.http is the injected HttpClient
     var fd = new FormData();
+
+    //Create a post to upload the file
     fd.append('file',  this.selectedFile, this.selectedFile.name);
     this.http.post('/api/image', fd)
       .subscribe(res => {
-        console.log(res); // handle event here
+        console.log(res);
+        this.imageObject = res;
+        this.imageFilename = this.imageObject.file.filename;
+        this.userImage = "http://localhost:8080/api/image/" + this.imageFilename;
+        // handle event here
       });
+    //get image back to pace in preview
+
   }
 
 }
