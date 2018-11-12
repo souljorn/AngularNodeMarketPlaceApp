@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-
 import { LoginSuccessComponent } from './login-success/login-success.component';
 import { LoginComponent } from './login/login.component';
 import {HomeComponent} from './home/home.component';

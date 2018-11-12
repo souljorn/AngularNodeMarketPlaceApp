@@ -81,7 +81,8 @@ exports.verifyUser = (req, res) => {
   let token = req.headers['authorization'];
   if(!token)
     return res.status(401).json({
-      message: "No token, Please Login"
+      message: "No token, Please Login",
+      decoded: null
     })
 
   else if (token) {

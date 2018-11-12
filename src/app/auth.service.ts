@@ -30,7 +30,7 @@ export class AuthenticationService {
           console.log('Print out the Token for Current user:' + currentUser.token);
 
           // Display pop up
-          alert('Login Successful');
+
           // Where to navigate after successful login
           this.router.navigate(['/loginSuccess']);
         }
