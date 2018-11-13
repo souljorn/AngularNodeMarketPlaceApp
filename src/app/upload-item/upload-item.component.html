@@ -3,18 +3,17 @@
     <div class="col-md-6 m-auto">
       <div class = "insideBorder">
         <h1> Sell New Item</h1>
-        <h4> Item Category
-          <select name = "categories">
-            <option value="tickets">Tickets</option>
-            <option value="textbooks">Textbooks</option>
-            <option value="apartment">Apartment/Dorm</option>
-            <option value="miscellaneous">Miscellaneous</option>
-          </select>
-        </h4>
+
         <img src= "../../assets/genericImage.png" alt="item picture" id = "itemPicture">
 
-        <form action="/upload" method="POST"
-              enctype="multipart/form-data">
+        <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST" enctype="multipart/form-data">
+          <h4> Item Category</h4>
+            <select name = "categories">
+              <option value="tickets">Tickets</option>
+              <option value="textbooks">Textbooks</option>
+              <option value="apartment">Apartment/Dorm</option>
+              <option value="miscellaneous">Miscellaneous</option>
+            </select>
           <div class="custom-file mb-3">
             <h2> Upload Item Picture </h2>
             <input type="file" #fileInput (change)="onFileChanged($event)"  name="file" id="file"
@@ -23,10 +22,10 @@
           <div class = "infoForms">
             <h3> Item Information </h3>
             <input type="text" name = "title" placeholder = " Title"> <br>
-            <input type="text" name = "description" placeholder = " Description"> <br>
+            <input type="text" name = "description" placeholder = " Description" > <br>
             <div class="moneyInput">
             <span class="dollarSign">$ </span>
-            <input type="number" name = "price" min= "0.00" placeholder = " 0.00"><br>
+            <input type="number" name = "price" min= "0.00" placeholder = " 0.00" ><br>
             </div>
           </div>
         <div class = "addressForm">
@@ -36,14 +35,14 @@
             <input type="text" name = "address2" placeholder = " Street Address Line 2"> <br>
           </div>
           <div class = "addressSize2">
-            <input type="text" name = "city" placeholder = " City">
-            <input type="text" name = "state" placeholder = " State"> <br>
-            <input type="text" name = "zip" placeholder = " Zip Code">
+            <input type="text" name = "city" placeholder = " City" >
+            <input type="text" name = "state" placeholder = " State" > <br>
+            <input type="text" name = "zip" placeholder = " Zip Code" >
             <input type="text" name = "country" placeholder = " Country"> <br>
           </div>
         </div>
 
-          <input type="submit" value="Submit" (click)="onUpload()" id = "submit" class="btn btn-primary btn-block" >
+          <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
         </form>
       </div>
     </div>
