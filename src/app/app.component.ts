@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {AuthenticationService} from './auth.service';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,10 +16,15 @@ export class AppComponent implements OnInit {
   jsonObj;
   loggedIn = false;  // Bool to signify if user is logged in
   message: string;
+  title: string;
+  description: string;
+  image: File;
+
 
   constructor(
     private http: HttpClient,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+
   ) {}
 
   // Received the event from the login component
@@ -27,7 +33,16 @@ export class AppComponent implements OnInit {
     console.log('Recieved Event');
     this.loggedIn = true;
   }
+  receiveItemMessage(str, str2, img){
+    this.title = str;
+    this.description = str2;
+    this.image = img;
+  }
+  sendItem(){
+    var arr = [this.title, this.description, this.image]
+    return arr;
 
+  }
   ngOnInit(): void {
 
     // Get Json Object and make it usable
