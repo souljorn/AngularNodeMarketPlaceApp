@@ -2,18 +2,18 @@
 .row{
   text-align: center;
 }
-#profileInfo{
+#itemInfo{
   margin-top: 43px;
   text-align-all: center;
   margin-left: 10%;
   height: 150%;
-  width: 120%;
+  width: 140%;
 
 }
-#profilePicture{
-  border-radius: 25px;
+#itemPicture{
   margin-bottom: 5px;
   margin-top: 10px;
+  border: 1px solid black;
 }
 .insideBorder{
   margin-left: 20%;
@@ -21,7 +21,7 @@
   border: 1px solid navy;
 }
 #file{
-  margin-left: 137px;
+  margin-left: 147px;
 }
 h1{
   color: navy;
@@ -44,21 +44,49 @@ h3{
   font-size: 19px;
   margin-bottom: 5px;
 }
+h4{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+h5{
+  color: navy;
+  font-family: "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
 #submit{
   width: 140px;
   height: 75%;
-  margin-left: 148px;
+  margin-left: 168px;
   margin-bottom: 20px;
+}
+.infoForms #categories{
 
 }
+.infoForms input{
+  margin-bottom: 10px;
+  width: 400px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.addressSize1 input{
+  margin-bottom: 10px;
+  width: 400px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
-.userForms input{
+.addressSize2 input{
   margin-bottom: 10px;
   width: 200px;
   height: 25px;
   border: 1px solid black;
   border-radius: 5px;
 }
-.profile {
-  max-width: 220px;
+.moneyInput input{
+  width:392px;
 }

@@ -3,24 +3,28 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // set up a mongoose model and pass it using module.exports
-module.exports = mongoose.model('accounts', new Schema({
-  email: {
+module.exports = mongoose.model('items', new Schema({
+  title: {
     type: String,
     required: true,
     unique: true
   },
-  firstname: {
-    type: String,
-  },
-  lastname:{
-    type: String,
-  },
-  password: {
+  description: {
     type: String,
     required: true
   },
-  items_purchased: Array,
-  items_sold: Array,
-  image: String
+  price: {
+    type: Number,
+    required: true
+  },
+  seller: {
+    type: String,
+    required: true
+  },
+  category:{
+    type: String
+  },
+  image: {
+    type: String
+  }
 }));
-

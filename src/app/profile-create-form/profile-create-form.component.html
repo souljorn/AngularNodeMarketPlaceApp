@@ -5,9 +5,10 @@
       <div class = "insideBorder">
       <h1> Create Profile</h1>
 
-      <img src= "../../assets/profile.jpg" alt="profile picture" id = "profilePicture">
+      <img class="profile rounded mx-auto d-block" src= "{{userImage}}" alt="profile picture" id = "profilePicture">
 
-      <form action="/upload" method="POST"
+
+      <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST"
             enctype="multipart/form-data">
         <div class="custom-file mb-3">
           <h2> Upload Profile Picture </h2>
@@ -16,11 +17,10 @@
         </div>
         <div class = "userForms">
           <h3> Personal Information </h3>
-          <input type=" text" name = "firstName" placeholder = " First Name"> <br>
-          <input type=" text" name = "lastName" placeholder = " Last Name"> <br>
-          <input type=" text" name = "email" placeholder = " Email">
+          <input type=" text" name = "firstname" id="firstname" placeholder = " First Name" ngModel> <br>
+          <input type=" text" name = "lastname" id="lastname" placeholder = " Last Name" ngModel> <br>
         </div>
-        <input type="submit" value="Submit" (click)="onUpload()" id = "submit" class="btn btn-primary btn-block" >
+        <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
       </form>
     </div>
     </div>
