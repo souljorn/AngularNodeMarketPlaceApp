@@ -38,7 +38,7 @@ import { MessengerComponentComponent } from './messenger-component/messenger-com
     UploadItemComponent,
     ProfileCreateFormComponent,
     ItemPageComponent,
-    ModalLoginComponent
+    ModalLoginComponent,
     ItemPageComponent,
     MessengerComponentComponent
 

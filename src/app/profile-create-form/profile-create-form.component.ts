@@ -5,6 +5,7 @@ import {UserService} from '../user.service';
 import {first} from 'rxjs/operators';
 import {AuthenticationService} from '../auth.service';
 import {Accounts} from '../Accounts';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-create-form',
@@ -25,7 +26,8 @@ export class ProfileCreateFormComponent implements OnInit {
   constructor(private http: HttpClient,
               private imageService: ImageService,
               private userService: UserService,
-              private authService: AuthenticationService
+              private authService: AuthenticationService,
+              private router: Router
   ) {}
 
   ngOnInit() {
@@ -89,6 +91,7 @@ export class ProfileCreateFormComponent implements OnInit {
         console.log(res);
       }
     )
+    this.router.navigate(['/profile']);
   }
 
 }

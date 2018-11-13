@@ -2,14 +2,12 @@
 <nav>
   <ul>
     <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/item">Item</a></li>
-    <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
-    <li><a routerLink="/loginSuccess"  *ngIf="loggedIn">LoginSuccess</a></li>
     <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
-    <li><a routerLink="/profileCreate">Profile Create</a></li>
-    <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
-    <li><a routerLink="/itemCreate">Upload Item</a></li>
+    <li><a routerLink="/profileCreate" *ngIf="loggedIn">Edit Profile</a></li>
+    <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
     <li><a routerLink="/itemPage">Item Page</a></li>
+    <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+    <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
