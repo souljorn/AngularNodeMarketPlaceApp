@@ -84,7 +84,7 @@ export class ProfileCreateFormComponent implements OnInit {
     this.account.lastname = ngForm.lastname;
     this.account.image = this.imageFilename;
     console.log(this.account);
-    this.userService.updateUser(this.email, this.account).pipe().subscribe(res => {
+    this.userService.updateUser(this.email, this.account).subscribe(res => {
         console.log("image update");
         console.log(res);
       }

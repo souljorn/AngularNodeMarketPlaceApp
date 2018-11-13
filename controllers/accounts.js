@@ -57,7 +57,8 @@ exports.getUser = (req, res) => {
 }
 
 exports.updateUser = (req,res) => {
-  const requestedUser = req.params['email'];
+  console.log("updateUser in server");
+  let requestedUser = req.params['email'];
   console.log(requestedUser);
   console.log(req.body);
 
@@ -67,13 +68,14 @@ exports.updateUser = (req,res) => {
       lastname: req.body.lastname,
       image: req.body.image
     });
-
+  console.log("Thos is the object getting sent to mongo");
   console.log(data);
 
-  Accounts.findOneAndUpdate(requestedUser, {$set:{firstname:data.firstname, lastname:data.lastname, image: data.image
-  }}, (err, doc) => {
+  Accounts.findOneAndUpdate({email: requestedUser},
+    {firstname:data.firstname, lastname:data.lastname, image: data.image},{new:true}
+    , (err, doc) => {
       if (err) return res.send(500, { error: err });
-      return res.send("succesfully updated");
+      return res.status(311).json(doc);
     })
   };
 

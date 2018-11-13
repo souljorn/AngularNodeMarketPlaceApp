@@ -26,6 +26,8 @@ export class UserService {
   }
 
   updateUser(email:string, account: Accounts):Observable<Accounts>{
+    console.log("Update User Service");
+    console.log(account);
     return this._http.post<Accounts>('api/accounts/' + email, account);
   }
 }
