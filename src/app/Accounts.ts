@@ -1,8 +1,9 @@
 export class Accounts {
   email: string;
-  username: string;
+  firstname: string;
+  lastname:string;
   password: string;
   image: string;
-  firstname: string;
-  lastname: string;
+  itemsPurchased:any;
+  itemsSold: any;
 }

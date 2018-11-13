@@ -15,8 +15,10 @@ exports.createAccount = (req, res) => {
   let data = new Accounts(
     {
       email: req.body.email,
-      username: req.body.username,
-      password: req.body.password
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      password: req.body.password,
+      image: req.body.image
     }
   );
 
@@ -53,4 +55,26 @@ exports.getUser = (req, res) => {
       });
     });
 }
+
+exports.updateUser = (req,res) => {
+  const requestedUser = req.params['email'];
+  console.log(requestedUser);
+  console.log(req.body);
+
+  let data = new Accounts(
+    {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      image: req.body.image
+    });
+
+  console.log(data);
+
+  Accounts.findOneAndUpdate(requestedUser, {$set:{firstname:data.firstname, lastname:data.lastname, image: data.image
+  }}, (err, doc) => {
+      if (err) return res.send(500, { error: err });
+      return res.send("succesfully updated");
+    })
+  };
+
 
