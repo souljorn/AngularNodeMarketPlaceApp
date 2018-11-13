@@ -9,10 +9,11 @@ module.exports = mongoose.model('accounts', new Schema({
     required: true,
     unique: true
   },
-  username: {
+  firstname: {
     type: String,
-    required: true,
-    unique: true
+  },
+  lastname:{
+    type: String,
   },
   password: {
     type: String,
