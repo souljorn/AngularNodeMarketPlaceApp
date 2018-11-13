@@ -35,6 +35,9 @@ export class ItemCardsComponent implements OnInit {
   ngOnInit() {
     this.itemService.getItems().pipe(first()).subscribe(res => this.items = res);
   }
+  resetShow(){
+    this.show = false;
+  }
   testAlert(title, description, img) {
     this.show = true;
     this.titleEvent.emit(title);

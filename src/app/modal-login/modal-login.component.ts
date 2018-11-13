@@ -23,4 +23,9 @@ export class ModalLoginComponent implements OnInit {
     this.image = this.arr[2];
   }
 
+  closeModal(){
+    var modal = document.getElementById('modal');
+    modal.style.display = "none";
+   }
+
 }
