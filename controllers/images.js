@@ -59,30 +59,34 @@ exports.allImages = (req, res) => {
 };
 
 exports.getImage = (req, res) => {
-  gfs.files.findOne({filename: req.params.filename},(err, file) => {
-    if(!file || file.length === 0){
+    if(!gfs.files)
       return res.status(404).json({
-        err:'No file exists'
+        err: 'No file exists'
       });
-    }
-    else{
-      //file exists
-
-      //check if is image
-      if(file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-        //read output to browser
-        const readstream = gfs.createReadStream(file.filename);
-        //Pipe the image through the response
-        readstream.pipe(res);
+    gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+      if (!file || file.length === 0) {
+        return res.status(404).json({
+          err: 'No file exists'
+        });
       }
-      else{
-        res.status(404).json({
-          err: 'Not an image'
-        })
-      }
+      else {
+        //file exists
 
-    }
-  })
+        //check if is image
+        if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+          //read output to browser
+          const readstream = gfs.createReadStream(file.filename);
+          //Pipe the image through the response
+          readstream.pipe(res);
+        }
+        else {
+          res.status(404).json({
+            err: 'Not an image'
+          })
+        }
+
+      }
+    })
 };
 
 //multer get passed storage object

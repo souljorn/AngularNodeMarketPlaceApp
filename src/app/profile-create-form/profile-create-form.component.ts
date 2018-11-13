@@ -4,6 +4,7 @@ import {ImageService} from '../image.service';
 import {UserService} from '../user.service';
 import {first} from 'rxjs/operators';
 import {AuthenticationService} from '../auth.service';
+import {Accounts} from '../Accounts';
 
 @Component({
   selector: 'app-profile-create-form',
@@ -19,6 +20,7 @@ export class ProfileCreateFormComponent implements OnInit {
   user;
   imageFilename;
   imageObject;
+  account: Accounts = new Accounts();
 
   constructor(private http: HttpClient,
               private imageService: ImageService,
@@ -54,6 +56,7 @@ export class ProfileCreateFormComponent implements OnInit {
   onFileChanged(event) {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
+    this.onUpload();
   }
 
   onUpload() {
@@ -69,9 +72,23 @@ export class ProfileCreateFormComponent implements OnInit {
         this.imageFilename = this.imageObject.file.filename;
         this.userImage = "http://localhost:8080/api/image/" + this.imageFilename;
         // handle event here
+
       });
     //get image back to pace in preview
 
+  }
+
+  onSubmit(ngForm){
+    console.log(ngForm);
+    this.account.firstname = ngForm.firstname;
+    this.account.lastname = ngForm.lastname;
+    this.account.image = this.imageFilename;
+    console.log(this.account);
+    this.userService.updateUser(this.email, this.account).pipe().subscribe(res => {
+        console.log("image update");
+        console.log(res);
+      }
+    )
   }
 
 }
