@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
   // Sends an event to inform the main app component that a user is logged in
   sendMessage() {
     this.messageEvent.emit(this.message);
+
   }
 }
 
