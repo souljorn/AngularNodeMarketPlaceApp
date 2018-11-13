@@ -32,7 +32,7 @@ export class AuthenticationService {
           // Display pop up
 
           // Where to navigate after successful login
-          this.router.navigate(['/loginSuccess']);
+          this.router.navigate(['/']);
         }
         return user;
       }));

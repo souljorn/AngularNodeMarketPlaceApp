@@ -1,0 +1,16 @@
+
+.modal-backdrop{
+  background-color: rgba(0,0,0,0.4);
+  overflow: auto;
+}
+
+
+.modal-content{
+  position: fixed;
+  z-index: 1;
+  margin: 10% auto;
+}
+#img{
+  max-height: 500px;
+  max-width: 500px;
+}

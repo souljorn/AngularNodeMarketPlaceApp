@@ -1,11 +1,19 @@
 
+
+<div *ngIf="show" (click)="resetShow()">
+  <app-modal-login> </app-modal-login>
+</div>
+
     <div class="row">
     <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
-      <div class="thumbnail">
+      <div class="thumbnail"  (click) = "testAlert(item.title, item.description, item.image)"  >
         <img src="http://localhost:8080/api/image/{{item.image}}">
         <div class="caption">
+
           <h4>{{item.title}}</h4>
           <h5>{{item.price | currency}}</h5>
+
+
           <p>{{item.description}}</p>
           <a href="#" class="btn-full" role="button">Go to item</a>
         </div>
