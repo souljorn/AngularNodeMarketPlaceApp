@@ -6,6 +6,7 @@ import {Item} from '../Item';
 import {first} from 'rxjs/operators';
 import {AuthenticationService} from '../auth.service';
 import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-upload-item',
@@ -20,14 +21,15 @@ export class UploadItemComponent implements OnInit {
   userFirstName;
   response;
   category;
+  email;
+  user;
 
   constructor(private http: HttpClient,
               private imageService: ImageService,
               private itemService: ItemService,
               private authService: AuthenticationService,
-              private router: Router) { }
-
-
+              private router: Router,
+              private userService: UserService,) { }
 
   ngOnInit() {
     this.authService.verifyUser().pipe(first()).subscribe(res => {
@@ -35,11 +37,20 @@ export class UploadItemComponent implements OnInit {
     console.log(this.response);
     if(this.response.message != 'Error'){
       console.log("First Name");
-      this.userFirstName = this.response.firstname;
+      this.email = this.response.decoded.email;
+      this.loadUserProfile();
     }else {
       console.log("Error getting user info");
     }
   })
+  }
+
+  loadUserProfile(){
+    this.userService.getUser(this.email).pipe(first()).subscribe(res => {
+      console.log("loading user profile");
+      this.user = res;
+      this.userFirstName = this.user.firstname;
+    })
   }
 
   onFileChanged(event) {
@@ -60,8 +71,6 @@ export class UploadItemComponent implements OnInit {
       });
   }
 
-  //TODO
-  //category
   onSubmit(ngForm){
     console.log(ngForm);
     this.item.title = ngForm.title;
@@ -69,7 +78,7 @@ export class UploadItemComponent implements OnInit {
     this.item.image = this.imageFilename;
     this.item.price = ngForm.price;
     this.item.seller = this.userFirstName;
-    this.item.category = ngForm.controls['categories'].value;
+//    this.item.category = ngForm.categories;
     this.item.address = ngForm.address;
     this.item.address2 = ngForm.address2;
     this.item.city = ngForm.city;

@@ -89,7 +89,7 @@ export class ProfileCreateFormComponent implements OnInit {
         console.log("image update");
         console.log(res);
       }
-    )
+    );
     this.router.navigate(['/profile']);
   }
 

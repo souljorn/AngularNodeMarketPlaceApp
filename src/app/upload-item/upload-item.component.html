@@ -6,9 +6,10 @@
 
         <img src= "../../assets/genericImage.png" alt="item picture" id = "itemPicture">
 
-        <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST" enctype="multipart/form-data">
+        <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST"
+              enctype="multipart/form-data">
           <h4> Item Category</h4>
-            <select name = "categories">
+            <select name = "categories" ngModelGroup>
               <option value="tickets">Tickets</option>
               <option value="textbooks">Textbooks</option>
               <option value="apartment">Apartment/Dorm</option>
@@ -21,26 +22,26 @@
           </div>
           <div class = "infoForms">
             <h3> Item Information </h3>
-            <input type="text" name = "title" placeholder = " Title"> <br>
-            <input type="text" name = "description" placeholder = " Description" > <br>
+            <input type="text" name = "title" placeholder = " Title" ngModel> <br>
+            <input type="text" name = "description" placeholder = " Description" ngModel> <br>
             <div class="moneyInput">
             <span class="dollarSign">$ </span>
-            <input type="number" name = "price" min= "0.00" placeholder = " 0.00" ><br>
+            <input type="number" name = "price" min= "0.00" placeholder = " 0.00" ngModel><br>
             </div>
           </div>
-        <div class = "addressForm">
-            <h5> Meetup Location</h5>
-          <div class = addressSize1>
-            <input type="text" name = "address" placeholder = " Street Address"> <br>
-            <input type="text" name = "address2" placeholder = " Street Address Line 2"> <br>
+          <div class = "addressForm">
+              <h5> Meetup Location</h5>
+            <div class = addressSize1>
+              <input type="text" name = "address" placeholder = " Street Address" ngModel> <br>
+              <input type="text" name = "address2" placeholder = " Street Address Line 2" ngModel> <br>
+            </div>
+            <div class = "addressSize2">
+              <input type="text" name = "city" placeholder = " City" ngModel>
+              <input type="text" name = "state" placeholder = " State" ngModel> <br>
+              <input type="text" name = "zip" placeholder = " Zip Code" ngModel>
+              <input type="text" name = "country" placeholder = " Country" ngModel> <br>
+            </div>
           </div>
-          <div class = "addressSize2">
-            <input type="text" name = "city" placeholder = " City" >
-            <input type="text" name = "state" placeholder = " State" > <br>
-            <input type="text" name = "zip" placeholder = " Zip Code" >
-            <input type="text" name = "country" placeholder = " Country"> <br>
-          </div>
-        </div>
 
           <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
         </form>
