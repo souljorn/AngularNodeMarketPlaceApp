@@ -9,7 +9,7 @@
         <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST"
               enctype="multipart/form-data">
           <h4> Item Category</h4>
-            <select name = "categories" [(ngModel)]="category">
+            <select name = "category" [(ngModel)]="category">
               <option value="tickets">Tickets</option>
               <option value="textbooks">Textbooks</option>
               <option value="apartment">Apartment/Dorm</option>
