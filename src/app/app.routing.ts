@@ -7,7 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {ItemComponent} from './item/item.component';
 import {ProfileCreateFormComponent} from './profile-create-form/profile-create-form.component';
 import {UploadItemComponent} from './upload-item/upload-item.component';
-
+import {GooglemapComponent} from './googlemap/googlemap.component';
 import {ItemPageComponent} from './item-page/item-page.component';
 import {MessengerComponentComponent} from './messenger-component/messenger-component.component';
 
@@ -23,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'itemCreate', component: UploadItemComponent},
   { path: 'itemPage', component: ItemPageComponent},
   { path: 'messenger', component: MessengerComponentComponent},
+  {path: 'map', component:GooglemapComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

@@ -1,6 +1,6 @@
 
-<div class = "modal-backdrop">
-<div role="document" class="modal-dialog" id = "modal">
+<div class = "modal-backdrop"  >
+<div role="document" class="modal-dialog" id = "modal" >
   <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">{{title}}</h4>
@@ -12,7 +12,9 @@
       <ng-content></ng-content>
       <h5>{{description}}</h5>
       <img id= "img" src="http://localhost:8080/api/image/{{image}}">
+      <h5>Price: ${{item.price}}</h5>
     </div>
+    <app-googlemap></app-googlemap>
     <div class="modal-footer">
       <button type="button" class="close" data-dismiss= "modal" (click)="closeModal()">Close</button>
     </div>
