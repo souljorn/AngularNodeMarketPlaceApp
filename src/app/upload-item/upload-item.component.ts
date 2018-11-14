@@ -78,7 +78,6 @@ export class UploadItemComponent implements OnInit {
     this.item.image = this.imageFilename;
     this.item.price = ngForm.price;
     this.item.seller = this.userFirstName;
-//    this.item.category = ngForm.categories;
     this.item.address = ngForm.address;
     this.item.address2 = ngForm.address2;
     this.item.city = ngForm.city;
