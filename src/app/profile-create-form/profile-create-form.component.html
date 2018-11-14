@@ -2,26 +2,25 @@
   <div class="row" id ="profileInfo">
     <div class="col-md-6 m-auto">
       <div class = "insideBorder">
-      <h1> Create Profile</h1>
-
-      <img class="profile rounded mx-auto d-block" src= "{{userImage}}" alt="profile picture" id = "profilePicture">
-
-
-      <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST"
-            enctype="multipart/form-data">
-        <div class="custom-file mb-3">
-          <h2> Upload Profile Picture </h2>
-          <input type="file" #fileInput (change)="onFileChanged($event)"  name="file" id="file"
-                 class="custom-file-input">
+        <h1> Create Profile</h1>
+        <div>
+          <img class="profile rounded mx-auto d-block" [src]= "imageFilename != null || user.image!= null || (selectedFile == null && user.image == null)  ? userImage : '../../assets/genericImage.png'">
         </div>
-        <div class = "userForms">
-          <h3> Personal Information </h3>
-          <input type=" text" name = "firstname" id="firstname" placeholder = " First Name" ngModel> <br>
-          <input type=" text" name = "lastname" id="lastname" placeholder = " Last Name" ngModel> <br>
-        </div>
-        <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
-      </form>
-    </div>
+         <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST"
+              enctype="multipart/form-data">
+          <div class="custom-file mb-3">
+            <h2> Upload Profile Picture </h2>
+            <input type="file" #fileInput (change)="onFileChanged($event)"  name="file" id="file"
+                   class="custom-file-input">
+          </div>
+          <div class = "userForms">
+            <h3> Personal Information </h3>
+            <input type=" text" name = "firstname" id="firstname" placeholder = " First Name" ngModel> <br>
+            <input type=" text" name = "lastname" id="lastname" placeholder = " Last Name" ngModel> <br>
+          </div>
+          <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
+        </form>
+      </div>
     </div>
   </div>
 </div>

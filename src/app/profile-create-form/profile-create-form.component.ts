@@ -39,7 +39,6 @@ export class ProfileCreateFormComponent implements OnInit {
         this.email = this.response.decoded.email;
         this.loadUserProfile();
       }else {
-        this.userImage = "../../src/assets/profile.jpg";
         console.log("Set basic image");
       }
     })
@@ -49,8 +48,10 @@ export class ProfileCreateFormComponent implements OnInit {
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       console.log("loading user profile");
       this.user = res;
+      if(this.user){
       this.userImage = "http://localhost:8080/api/image/" + this.user.image;
       console.log(this.user.image);
+      }
     })
   }
 

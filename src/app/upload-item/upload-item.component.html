@@ -4,8 +4,7 @@
       <div class = "insideBorder">
         <h1> Sell New Item</h1>
 
-        <img src= "../../assets/genericImage.png" alt="item picture" id = "itemPicture">
-
+        <img  [src]= "itemImage != null ? itemImage : '../../assets/genericImage.png'" class=""alt="item picture" id = "itemPicture">
         <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST"
               enctype="multipart/form-data">
           <h4> Item Category</h4>

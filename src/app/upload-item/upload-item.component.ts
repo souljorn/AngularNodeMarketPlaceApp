@@ -23,6 +23,7 @@ export class UploadItemComponent implements OnInit {
   category;
   email;
   user;
+  itemImage;
 
   constructor(private http: HttpClient,
               private imageService: ImageService,
@@ -68,6 +69,7 @@ export class UploadItemComponent implements OnInit {
         console.log(res); // handle event here
         this.imageObject = res;
         this.imageFilename = this.imageObject.file.filename;
+        this.itemImage =  "http://localhost:8080/api/image/" + this.imageFilename;
       });
   }
 

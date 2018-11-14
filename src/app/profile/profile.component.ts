@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
  response: any;
  email;
  user : Accounts;
+ userImage;
 
   constructor(private userService: UserService,
               private  authService: AuthenticationService,
@@ -35,7 +36,10 @@ export class ProfileComponent implements OnInit {
   loadUserProfile(){
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       this.user = res;
+      if(this.user){
       console.log(this.user);
+      this.userImage = "http://localhost:8080/api/image/" + this.user.image;
+      }
     })
   }
 
