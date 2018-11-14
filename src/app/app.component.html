@@ -5,7 +5,6 @@
     <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
     <li><a routerLink="/profileCreate" *ngIf="loggedIn">Edit Profile</a></li>
     <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
-    <li><a routerLink="/itemPage">Item Page</a></li>
     <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
     <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
   </ul>
