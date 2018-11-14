@@ -24,6 +24,8 @@ import { UploadItemComponent } from './upload-item/upload-item.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { MessengerComponentComponent } from './messenger-component/messenger-component.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -40,14 +42,20 @@ import { MessengerComponentComponent } from './messenger-component/messenger-com
     ItemPageComponent,
     ModalLoginComponent,
     ItemPageComponent,
-    MessengerComponentComponent
+    MessengerComponentComponent,
+    GooglemapComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyDYznE2GHWNmS6Li95YZan8LOPX1P0Kab4',
+    })
   ],
   providers: [
     AuthGuard,
