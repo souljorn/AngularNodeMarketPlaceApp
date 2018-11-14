@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AuthenticationService} from './auth.service';
+import {first} from 'rxjs/operators';
 
 
 
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   title: string;
   description: string;
   image: File;
+  private response: any;
 
 
   constructor(
@@ -43,15 +45,17 @@ export class AppComponent implements OnInit {
     return arr;
 
   }
-  ngOnInit(): void {
+  ngOnInit() {
+    this.auth.verifyUser().pipe(first()).subscribe(res => {
+      this.response = res;
+      console.log(this.response);
+      if(this.response.message != 'Error'){
+        this.loggedIn = true;
 
-    // Get Json Object and make it usable
-    this.http.get('/api/users').subscribe(data => {
-      this.jsonObj = JSON.parse(JSON.stringify(data));
-      this.users = JSON.parse(JSON.stringify(data));
-    });
-
-    console.log(this.jsonObj);
+      }else {
+        this.loggedIn = false;
+      }
+    })
   }
 
   // Function called when logout button is clicked
@@ -66,7 +70,7 @@ export class AppComponent implements OnInit {
   }
 
   // Destroys token when browser is closed
-  @HostListener('window:onbeforeunload', ['$event'])
-  clearLocalStorage(event) {
-    localStorage.clear(); }
+  // @HostListener('window:onbeforeunload', ['$event'])
+  // clearLocalStorage(event) {
+  //   localStorage.clear(); }
 }
