@@ -10,7 +10,14 @@ exports.createItem = (req, res) => {
       description: req.body.description,
       price: req.body.price,
       seller: req.body.seller,
-      category: req.body.category
+      category: req.body.category,
+      image: req.body.image,
+      address: req.body.address,
+      address2: req.body.address2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      country: req.body.country
     }
   );
 

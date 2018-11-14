@@ -31,7 +31,6 @@ export class ProfileCreateFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.authService.verifyUser().pipe(first()).subscribe(res => {
       this.response = res;
       console.log(this.response);
@@ -43,7 +42,7 @@ export class ProfileCreateFormComponent implements OnInit {
         this.userImage = "../../src/assets/profile.jpg";
         console.log("Set basic image");
       }
-  })
+    })
   }
 
   loadUserProfile(){
@@ -90,7 +89,7 @@ export class ProfileCreateFormComponent implements OnInit {
         console.log("image update");
         console.log(res);
       }
-    )
+    );
     this.router.navigate(['/profile']);
   }
 
