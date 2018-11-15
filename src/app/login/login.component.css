@@ -10,14 +10,26 @@ h2 {
 .form-control {
 	width: 25%;
 	border: 1px solid black;
-	margin: 0 auto;
-	margin-bottom: 8px;
+  margin: 0 auto 8px;
 }
 
-.btn-warning {
-	border-color: black;
-	margin-bottom: 8px;
+.btn-full
+{
+  margin: 15px;
+  padding: 8px 18px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 200px;
+  background-color: #0b1e4ad9;
+  color: #fff;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
+
+.btn-full:hover, .btn-full:active
+{
+  background-color: #4e7be4;
+}
+
 
 
 hr {
