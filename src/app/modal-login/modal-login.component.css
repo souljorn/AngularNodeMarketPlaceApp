@@ -1,16 +1,26 @@
 
+.modal-body{
+  min-width: 500px;
+}
 .modal-backdrop{
   background-color: rgba(0,0,0,0.4);
   overflow: auto;
 }
 
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
 
 .modal-content{
-  position: fixed;
+
+
   z-index: 1;
   margin: 10% auto;
 }
-#img{
-  max-height: 500px;
+img{
   max-width: 500px;
 }

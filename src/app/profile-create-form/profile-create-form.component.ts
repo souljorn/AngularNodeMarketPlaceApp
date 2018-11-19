@@ -31,7 +31,6 @@ export class ProfileCreateFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.authService.verifyUser().pipe(first()).subscribe(res => {
       this.response = res;
       console.log(this.response);
@@ -40,18 +39,19 @@ export class ProfileCreateFormComponent implements OnInit {
         this.email = this.response.decoded.email;
         this.loadUserProfile();
       }else {
-        this.userImage = "../../src/assets/profile.jpg";
         console.log("Set basic image");
       }
-  })
+    })
   }
 
   loadUserProfile(){
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       console.log("loading user profile");
       this.user = res;
+      if(this.user){
       this.userImage = "http://localhost:8080/api/image/" + this.user.image;
       console.log(this.user.image);
+      }
     })
   }
 
@@ -90,7 +90,7 @@ export class ProfileCreateFormComponent implements OnInit {
         console.log("image update");
         console.log(res);
       }
-    )
+    );
     this.router.navigate(['/profile']);
   }
 

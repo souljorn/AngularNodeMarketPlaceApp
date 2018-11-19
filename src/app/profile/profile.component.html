@@ -7,8 +7,8 @@
 	<div class="container">	
 		<div class="row">
 			<div>
-        <img src="http://localhost:8080/api/image/{{user.image}}">
-			</div>
+        <img class="profile rounded mx-auto d-block" [src]= "user.image !=null ? userImage : '../../assets/genericImage.png'">
+      </div>
 			<div>
 				<hr>
 				<h2 >{{user.firstname}}<br>{{user.lastname}}</h2>

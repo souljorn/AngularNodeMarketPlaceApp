@@ -22,9 +22,14 @@ module.exports = mongoose.model('items', new Schema({
     required: true
   },
   category:{
-    type: String
+    type: String,
+    default: 'miscellaneous'
   },
-  image: {
-    type: String
-  }
+  image: String,
+  address: String,
+  address2: String,
+  city: String,
+  state: String,
+  zip: String,
+  country: String
 }));
