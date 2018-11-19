@@ -6,17 +6,19 @@
 			<form #signupForm="ngForm" (ngSubmit)="loginUser(signupForm)">
   			<input type="text" name="email" class="form-control" id="email" placeholder="Email" ngModel>
   			<input type="password" name="password" class="form-control" id="password" placeholder="Password" ngModel>
-  			<button type="submit" class="btn btn-warning">Log In</button>
+  			<button type="submit" class="btn-full">Log In</button>
 			</form>
 			<a href="https://www.google.com/" target="_blank">Forgot password?</a>
 		</div>
 		<div>
-			<hr>
-			<h2 id="account">Don't have an account?</h2>
-            	<input type="text" class="form-control" placeholder="Email"/>
-				      <input type="text" class="form-control" placeholder="Username"/>
-            	<input type="password" class="form-control" placeholder="Password"/>
-            	<button class="btn btn-warning">Sign Up</button>
+      <hr>
+      <h2 id="account">Don't have an account?</h2>
+        <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST" enctype="multipart/form-data">
+            <input type="text" class="form-control" name="newEmail" id="newEmail" placeholder="Email" ngModel>
+            <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Password" ngModel>
+            <input type="password" class="form-control" name="validatePassword" id="validatePassword" placeholder="Repeat password" ngModel>
+            <button class="btn-full">Sign Up</button>
+        </form>
 		</div>
   </div>
   </div>

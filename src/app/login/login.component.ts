@@ -51,7 +51,25 @@ export class LoginComponent implements OnInit {
           console.log('Login Failed');
         }
       );
-}
+  }
+
+
+  onSubmit(ngForm) {
+    console.log(ngForm);
+    let user = new Accounts();
+    user.email = ngForm.newEmail;
+    user.password = ngForm.newPassword;
+    this.userService.createUser(user).pipe(first())
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log(err.message);
+          console.log('Login Failed');
+        }
+      );
+  }
 
   // Sends an event to inform the main app component that a user is logged in
   sendMessage() {
