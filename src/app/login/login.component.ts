@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   message: 'Logged in';
   accounts: Array<Accounts>;
+  email;
+  password
 
   // Event Emmiter to pass data to app component
   @Output() messageEvent = new EventEmitter<string>();
@@ -62,7 +64,9 @@ export class LoginComponent implements OnInit {
     this.userService.createUser(user).pipe(first())
       .subscribe(
         res => {
+
           console.log(res);
+          this.loginUser(ngForm);
         },
         err => {
           console.log(err.message);

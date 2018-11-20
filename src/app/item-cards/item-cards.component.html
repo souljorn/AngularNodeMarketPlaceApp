@@ -1,12 +1,7 @@
 
-
-<div *ngIf="show" (click)="resetShow()">
-  <app-modal-login> </app-modal-login>
-</div>
-
     <div class="row">
     <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
-      <div class="thumbnail"  (click) = "testAlert(item.title, item.description, item.image)"  >
+      <div class="thumbnail"  (click) = "currItem(item)"  >
         <img src="http://localhost:8080/api/image/{{item.image}}">
         <div class="caption">
 
@@ -15,10 +10,32 @@
 
 
           <p>{{item.description}}</p>
-          <a href="#" class="btn-full" role="button">Go to item</a>
+          <a href="#" class="btn-full"  data-toggle="modal" data-target="#modal" role="button">Go to item</a>
         </div>
       </div>
     </div>
     </div>
+
+
+<div class ="modal fade" data-backdrop="static" data-keyboard="false"  id= "modal" >
+  <div class="modal-dialog" >
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{getItem == null ? "" : getItem.title}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h5>{{getItem == null ? "" : getItem.description}}</h5>
+        <img id= "img" src="http://localhost:8080/api/image/{{getItem == null ? '' : getItem.image}}">
+        <h5>Price: ${{getItem == null ? "" : getItem.price}}</h5>
+      </div>
+      <app-googlemap></app-googlemap>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
