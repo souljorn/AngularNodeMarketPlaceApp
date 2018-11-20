@@ -14,10 +14,12 @@ import {AppComponent} from '../app.component';
 export class ItemCardsComponent implements OnInit {
 
   items: Array<Item>;
+  getItem;ga
   image: File;
   show: boolean = false;
   message: string = "";
   arr: Array<string>
+  imageLink: string = 'http://localhost:8080/api/image';
 
 
   @Output() titleEvent = new EventEmitter<string>();
@@ -34,16 +36,19 @@ export class ItemCardsComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.getItems().pipe(first()).subscribe(res => this.items = res);
+    if(this.getItem == null)
+      this.imageLink = '';
+    else
+      this.imageLink = 'http://localhost:8080/api/image';
+
   }
-  resetShow(){
-    this.show = false;
-  }
-  testAlert(title, description, img) {
-    this.show = true;
-    this.titleEvent.emit(title);
-    this.descEvent.emit(description);
-    this.imgEvent.emit(img);
-    this.appComp.receiveItemMessage(title, description, img);
+
+  currItem(item) {
+    this.getItem = item;
+    if(this.getItem == null)
+      this.imageLink = '';
+    else
+      this.imageLink = 'http://localhost:8080/api/image/';
   }
   getItemImage(filename : string){
    this.imageService.getImage(filename).pipe().subscribe(res => this.image = res);

@@ -27,7 +27,7 @@
       </div>
       <div class="modal-body">
         <h5>{{getItem == null ? "" : getItem.description}}</h5>
-        <img id= "img" src="http://localhost:8080/api/image/{{getItem == null ? '' : getItem.image}}">
+        <img id= "img" src="{{getItem == null ? imageLink : (imageLink + getItem.image)}}">
         <h5>Price: ${{getItem == null ? "" : getItem.price}}</h5>
       </div>
       <app-googlemap></app-googlemap>
