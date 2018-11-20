@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   message: 'Logged in';
   accounts: Array<Accounts>;
   email;
-  password
+  password;
+  fail: boolean = false;
 
   // Event Emmiter to pass data to app component
   @Output() messageEvent = new EventEmitter<string>();
@@ -47,10 +48,12 @@ export class LoginComponent implements OnInit {
           // Event message to update state of login
           this.sendMessage();
           this.appComp.receiveMessage(res);
+          this.fail = true;
         },
         err => {
           console.log(err.message);
           console.log('Login Failed');
+          this.fail = true;
         }
       );
   }

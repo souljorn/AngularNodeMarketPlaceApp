@@ -14,7 +14,7 @@ import {AppComponent} from '../app.component';
 export class ItemCardsComponent implements OnInit {
 
   items: Array<Item>;
-  getItem;ga
+  getItem: Item;
   image: File;
   show: boolean = false;
   message: string = "";

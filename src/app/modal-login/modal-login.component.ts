@@ -22,7 +22,6 @@ export class ModalLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.arr  = this.appComp.sendItem()
     this.title = this.arr[0];
     this.description = this.arr[1];
     this.image = this.arr[2];

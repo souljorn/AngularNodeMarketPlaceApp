@@ -6,6 +6,7 @@
 			<form #signupForm="ngForm" (ngSubmit)="loginUser(signupForm)">
   			<input type="text" name="email" class="form-control" id="email" placeholder="Email" ngModel>
   			<input type="password" name="password" class="form-control" id="password" placeholder="Password" ngModel>
+        <h3 *ngIf = "fail"> *Login failed: username or password incorrect</h3>
   			<button type="submit" class="btn-full">Log In</button>
 			</form>
 			<a href="https://www.google.com/" target="_blank">Forgot password?</a>

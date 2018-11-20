@@ -2,6 +2,10 @@ h2 {
 	color: #1069A4;
 	margin-bottom: 15px;
 }
+h3{
+  color: red;
+  font-size: 12px;
+}
 
 #login-info {
 	text-align: center;
