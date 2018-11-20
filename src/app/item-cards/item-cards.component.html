@@ -22,13 +22,13 @@
 
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">{{getItem.title}}</h4>
+        <h4 class="modal-title">{{getItem == null ? "" : getItem.title}}</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <h5>{{getItem.description}}</h5>
-        <img id= "img" src="http://localhost:8080/api/image/{{getItem.image}}">
-        <h5>Price: ${{getItem.price}}</h5>
+        <h5>{{getItem == null ? "" : getItem.description}}</h5>
+        <img id= "img" src="http://localhost:8080/api/image/{{getItem == null ? '' : getItem.image}}">
+        <h5>Price: ${{getItem == null ? "" : getItem.price}}</h5>
       </div>
       <app-googlemap></app-googlemap>
       <div class="modal-footer">
