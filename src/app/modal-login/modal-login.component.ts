@@ -18,8 +18,11 @@ export class ModalLoginComponent implements OnInit {
 
   constructor(
     private appComp: AppComponent,
-    private itemService: ItemService
-  ) { }
+    private itemService: ItemService,
+
+  ) {
+
+  }
 
   ngOnInit() {
     this.arr  = this.appComp.sendItem()
@@ -27,7 +30,9 @@ export class ModalLoginComponent implements OnInit {
     this.description = this.arr[1];
     this.image = this.arr[2];
     this.getAnItemByTitle(this.title);
+
   }
+
 
   closeModal(){
     var modal = document.getElementById('modal');
