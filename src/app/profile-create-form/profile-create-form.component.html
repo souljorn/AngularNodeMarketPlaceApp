@@ -1,7 +1,7 @@
-<div class="container">
+
   <div class="row" id ="profileInfo">
     <div class="col-md-6 m-auto">
-      <div class = "insideBorder">
+        <mat-card>
         <h1> Create Profile</h1>
         <div>
           <img class="profile rounded mx-auto d-block" [src]= "imageFilename != null || user.image!= null || (selectedFile == null && user.image == null)  ? userImage : '../../assets/genericImage.png'">
@@ -15,13 +15,17 @@
           </div>
           <div class = "userForms">
             <h3> Personal Information </h3>
-            <input type=" text" name = "firstname" id="firstname" placeholder = " First Name" ngModel> <br>
-            <input type=" text" name = "lastname" id="lastname" placeholder = " Last Name" ngModel> <br>
+            <mat-form-field>
+            <input matInput type=" text" name = "firstname" id="firstname" placeholder = " First Name" ngModel> <br>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type=" text" name = "lastname" id="lastname" placeholder = " Last Name" ngModel> <br>
+          </mat-form-field>
           </div>
-          <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
+          <button mat-raised-button color="primary" type="submit" value="Submit" id = "submit" >Submit</button>
+          <!-- <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" > -->
         </form>
-      </div>
+        </mat-card>
     </div>
   </div>
-</div>
 
