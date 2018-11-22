@@ -1,5 +1,5 @@
 h2 {
-	color: #1069A4;
+	color: rgb(0, 0, 0);
 	margin-bottom: 15px;
 }
 h3{
@@ -11,27 +11,20 @@ h3{
 	text-align: center;
 }
 
-.form-control {
+/* .form-control {
 	width: 25%;
 	border: 1px solid black;
   margin: 0 auto 8px;
+} */
+.cards{
+  margin-top: 5%
 }
 
-.btn-full
-{
-  margin: 15px;
-  padding: 8px 18px;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 200px;
-  background-color: #0b1e4ad9;
-  color: #fff;
-  transition: background-color 0.3s, border 0.3s, color 0.3s;
-}
+.example-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 
-.btn-full:hover, .btn-full:active
-{
-  background-color: #4e7be4;
 }
 
 

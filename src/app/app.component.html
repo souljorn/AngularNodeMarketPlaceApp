@@ -1,5 +1,8 @@
-<h1 class="title">Gator Market Place</h1>
-<nav>
+
+<mat-toolbar color = "primary">
+    <h1 class="title">Gator Market Place</h1>
+</mat-toolbar>
+<mat-toolbar color="primary">
   <ul>
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
@@ -7,8 +10,10 @@
     <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
     <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
     <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
+
   </ul>
-</nav>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
 
 

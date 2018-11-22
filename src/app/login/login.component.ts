@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import {AuthenticationService} from '../auth.service';
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   accounts: Array<Accounts>;
   email;
   password;
-  fail: boolean = false;
+  fail = false;
 
   // Event Emmiter to pass data to app component
   @Output() messageEvent = new EventEmitter<string>();
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(ngForm) {
     console.log(ngForm);
-    let user = new Accounts();
+    const user = new Accounts();
     user.email = ngForm.newEmail;
     user.password = ngForm.newPassword;
     this.userService.createUser(user).pipe(first())

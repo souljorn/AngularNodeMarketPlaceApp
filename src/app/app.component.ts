@@ -35,13 +35,13 @@ export class AppComponent implements OnInit {
     console.log('Recieved Event');
     this.loggedIn = true;
   }
-  receiveItemMessage(str, str2, img){
+  receiveItemMessage(str, str2, img) {
     this.title = str;
     this.description = str2;
     this.image = img;
   }
-  sendItem(){
-    var arr = [this.title, this.description, this.image]
+  sendItem() {
+    const arr = [this.title, this.description, this.image];
     return arr;
 
   }
@@ -49,13 +49,13 @@ export class AppComponent implements OnInit {
     this.auth.verifyUser().pipe(first()).subscribe(res => {
       this.response = res;
       console.log(this.response);
-      if(this.response.message != 'Error'){
+      if (this.response.message !== 'Error') {
         this.loggedIn = true;
 
-      }else {
+      } else {
         this.loggedIn = false;
       }
-    })
+    });
   }
 
   // Function called when logout button is clicked

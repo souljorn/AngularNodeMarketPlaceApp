@@ -10,7 +10,8 @@
 
 
           <p>{{item.description}}</p>
-          <a href="#" class="btn-full"  data-toggle="modal" data-target="#modal" role="button">Go to item</a>
+          <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">View Details</button>
+
         </div>
       </div>
     </div>
@@ -32,7 +33,7 @@
       </div>
       <app-googlemap></app-googlemap>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+        <button mat-raised-button color="primary"  data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

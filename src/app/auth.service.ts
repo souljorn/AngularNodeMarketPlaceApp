@@ -43,7 +43,7 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
   }
 
-  verifyUser():Observable<any> {
+  verifyUser(): Observable<any> {
     return this.http.get<any>('/api/verify');
   }
 }
