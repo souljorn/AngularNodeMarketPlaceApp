@@ -20,7 +20,8 @@ li a {
 
 
 li a:hover {
-  background-color: #80b3ff ;
+  text-decoration: underline;
+
 }
 
 nav ul{
