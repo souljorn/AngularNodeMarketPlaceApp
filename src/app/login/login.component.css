@@ -21,15 +21,19 @@ h3{
 }
 
 .example-container {
+  margin-bottom: 20px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 
 }
 
+button {
+  max-width: 130px;
+}
 
 
-hr {
+/* hr {
 	border-color: black;
 	margin-bottom: 0px;
-}
+} */
