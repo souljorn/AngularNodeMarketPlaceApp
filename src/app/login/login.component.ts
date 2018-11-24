@@ -7,6 +7,7 @@ import {AppComponent} from '../app.component';
 import {UserService} from '../user.service';
 import {Accounts} from '../Accounts';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,7 @@ import {Accounts} from '../Accounts';
 })
 
 export class LoginComponent implements OnInit {
-
+  model: any = {};
   message: 'Logged in';
   accounts: Array<Accounts>;
   email;
@@ -60,15 +61,25 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(ngForm) {
+    console.log('ngForm starts')
     console.log(ngForm);
-    const user = new Accounts();
-    user.email = ngForm.newEmail;
-    user.password = ngForm.newPassword;
+    console.log('ngForm ends')
+    let user = new Accounts();
+    console.log('user email is ' + ngForm.email)
+    console.log('user password is ' + ngForm.password)
+    user.email = ngForm.email;
+    user.password = ngForm.password;
+    console.log('user email is ' + user.email)
+    console.log('user password is ' + user.password)
     this.userService.createUser(user).pipe(first())
       .subscribe(
         res => {
 
           console.log(res);
+          console.log('Sign in user')
+          console.log('ngForm starts')
+          console.log(ngForm);
+          console.log('ngForm ends')
           this.loginUser(ngForm);
         },
         err => {

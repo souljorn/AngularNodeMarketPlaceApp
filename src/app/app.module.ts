@@ -34,6 +34,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
+import { CompareValidatorDirective } from './shared/compare-validator.directive';
 
 
  @NgModule({
@@ -52,7 +53,8 @@ import {MatCardModule} from '@angular/material/card';
     ModalLoginComponent,
     ItemPageComponent,
     MessengerComponentComponent,
-    GooglemapComponent
+    GooglemapComponent,
+    CompareValidatorDirective
 
   ],
   imports: [

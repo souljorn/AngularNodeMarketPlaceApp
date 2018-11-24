@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'itemCreate', component: UploadItemComponent},
   { path: 'itemPage', component: ItemPageComponent},
   { path: 'messenger', component: MessengerComponentComponent},
-  {path: 'map', component:GooglemapComponent},
+  { path: 'map', component:GooglemapComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
