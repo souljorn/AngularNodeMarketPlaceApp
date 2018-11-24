@@ -1,19 +1,22 @@
 <div class="container">
   <div class="row" id ="itemInfo">
-    <div class="col-md-6 m-auto">
-      <div class = "insideBorder">
+
+      <mat-card>
         <h1> Sell New Item</h1>
 
         <img  [src]= "itemImage != null ? itemImage : '../../assets/genericImage.png'" class=""alt="item picture" id = "itemPicture">
+
         <form #f="ngForm" action="/upload" (ngSubmit)="onSubmit(f.value)"  method="POST"
               enctype="multipart/form-data">
           <h4> Item Category</h4>
-            <select name = "category" [(ngModel)]="category">
-              <option value="tickets">Tickets</option>
-              <option value="textbooks">Textbooks</option>
-              <option value="apartment">Apartment/Dorm</option>
-              <option value="miscellaneous">Miscellaneous</option>
-            </select>
+          <mat-form-field>
+            <mat-select name = "category" [(ngModel)]="category">
+              <mat-option value="tickets">Tickets</mat-option>
+              <mat-option value="textbooks">Textbooks</mat-option>
+              <mat-option value="apartment">Apartment/Dorm</mat-option>
+              <mat-option value="miscellaneous">Miscellaneous</mat-option>
+            </mat-select>
+          </mat-form-field>
           <div class="custom-file mb-3">
             <h2> Upload Item Picture </h2>
             <input type="file" #fileInput (change)="onFileChanged($event)"  name="file" id="file"
@@ -21,30 +24,47 @@
           </div>
           <div class = "infoForms">
             <h3> Item Information </h3>
-            <input type="text" name = "title" placeholder = " Title" ngModel> <br>
-            <input type="text" name = "description" placeholder = " Description" ngModel> <br>
+            <mat-form-field>
+            <input matInput stype="text" name = "title" placeholder = " Title" ngModel> <br>
+              </mat-form-field>
+              <mat-form-field>
+            <input matInput type="text" name = "description" placeholder = " Description" ngModel> <br>
+          </mat-form-field>
             <div class="moneyInput">
-            <span class="dollarSign">$ </span>
-            <input type="number" name = "price" min= "0.00" placeholder = " 0.00" ngModel><br>
+          <mat-form-field>
+            <input matInput type="number" name = "price" min= "0.00" placeholder = " 0.00" ngModel><br>
+          </mat-form-field>
             </div>
           </div>
           <div class = "addressForm">
               <h5> Meetup Location</h5>
             <div class = addressSize1>
-              <input type="text" name = "address" placeholder = " Street Address" ngModel> <br>
-              <input type="text" name = "address2" placeholder = " Street Address Line 2" ngModel> <br>
+              <mat-form-field>
+              <input matInput type="text" name = "address" placeholder = " Street Address" ngModel> <br>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" name = "address2" placeholder = " Street Address Line 2" ngModel> <br>
+            </mat-form-field>
             </div>
             <div class = "addressSize2">
-              <input type="text" name = "city" placeholder = " City" ngModel>
-              <input type="text" name = "state" placeholder = " State" ngModel> <br>
-              <input type="text" name = "zip" placeholder = " Zip Code" ngModel>
-              <input type="text" name = "country" placeholder = " Country" ngModel> <br>
+                <mat-form-field>
+              <input matInput type="text" name = "city" placeholder = " City" ngModel>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" name = "state" placeholder = " State" ngModel> <br>
+
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" name = "zip" placeholder = " Zip Code" ngModel>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" name = "country" placeholder = " Country" ngModel> <br>
+            </mat-form-field>
             </div>
           </div>
-
-          <input type="submit" value="Submit" id = "submit" class="btn btn-primary btn-block" >
+          <button mat-raised-button color="primary" type="submit" value="Submit" id = "submit" >Submit</button>
         </form>
-      </div>
+      </mat-card>
     </div>
-  </div>
+
 </div>
