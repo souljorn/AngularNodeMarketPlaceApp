@@ -11,7 +11,7 @@ const morgan = require('morgan');
 const config = require('./config'); // get our config file
 mongoose.connect(config.db.uri); // connect to database
 //Export express app for other files to use
-var app = module.exports = express();
+const app = module.exports = express();
 app.set('superSecret', config.secret); // secret variable
 app.set('URI', config.db.uri); // URI variable
 
