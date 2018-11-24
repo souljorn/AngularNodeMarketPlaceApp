@@ -19,7 +19,7 @@ body {
 }
 
 #file{
-  margin-left: 137px;
+  margin-left: 40%;
 }
 
 
@@ -49,5 +49,5 @@ h3{
   border-radius: 5px;
 } */
 .profile {
-  max-width: 220px;
+  max-width: 300px;
 }
