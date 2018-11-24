@@ -5,7 +5,9 @@ ul {
   overflow: hidden;
 
 }
-
+.title{
+  margin-right: 5px;
+}
 li {
   float: left;
 }
