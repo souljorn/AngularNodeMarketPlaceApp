@@ -14,10 +14,32 @@
 		<div>
       <hr>
       <h2 id="account">Don't have an account?</h2>
-        <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST" enctype="multipart/form-data">
+        <form name="form" action="/upload" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" placeholder="Email" required />
+          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="firstName.errors.required">First Name is required</div>
+          </div>
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" placeholder="Password" required />
+          <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+            <div *ngIf="lastName.errors.required">Last Name is required</div>
+          </div>
+          <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Email" required email />
+          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+          </div>
+          <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" placeholder="Password" required minlength="6" />
+          <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        <!--<form #f="ngForm" action="/upload"  (ngSubmit)="f.form.valid && onSubmit(f.value)" method="POST" enctype="multipart/form-data" novalidate>
+            <input type="text" class="form-control" name="newEmail" [(ngModel)]="email" #newEmail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && newEmail.invalid }" placeholder="Email" required />
             <input type="text" class="form-control" name="newEmail" id="newEmail" placeholder="Email" ngModel>
+              <h3 *ngIf = "fail"> *Signup failed: invalid email address</h3>
+              <h3 *ngIf="f.submitted && email.invalid" class="invalid-feedback">Email is wrong</h3>
             <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Password" ngModel>
-            <input type="password" class="form-control" name="validatePassword" id="validatePassword" placeholder="Repeat password" ngModel>
+            <input type="password" class="form-control" name="validatePassword" id="validatePassword" placeholder="Repeat password" ngModel>-->
             <button class="btn-full">Sign Up</button>
         </form>
 		</div>
