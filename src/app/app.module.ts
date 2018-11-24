@@ -35,7 +35,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
-import { TdFormComponent } from './td-form/td-form.component';
 
 
  @NgModule({
@@ -55,8 +54,7 @@ import { TdFormComponent } from './td-form/td-form.component';
     ItemPageComponent,
     MessengerComponentComponent,
     GooglemapComponent,
-    CompareValidatorDirective,
-    TdFormComponent
+    CompareValidatorDirective
 
   ],
   imports: [
