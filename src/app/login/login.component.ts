@@ -37,8 +37,12 @@ export class LoginComponent implements OnInit {
   }
 
   // Call to the Login Rest API to get a Token
-  loginUser(form: NgForm) {
+  loginUser(form) {
+    console.log(form);
     console.log(form.value);
+
+    if(form.value == null)
+      form = {value: form};
 
     // Calling the authentication service
     this.authenticationService.login(form.value.email, form.value.password).pipe(first())
