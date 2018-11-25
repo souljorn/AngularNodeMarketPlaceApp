@@ -1,7 +1,4 @@
-
-
-
-	<div class="container">
+<div class="container">
 	<div class="row" id="login-info">
 
 		<mat-card class = "cards">
@@ -31,7 +28,7 @@
     </mat-card>
     <mat-card class = "cards">
       <h2 id="account">Don't have an account?</h2>
-      <form class="example-container" name="form" action="/upload" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" method="POST" enctype="multipart/form-data" novalidate>
+      <form class="example-container" name="form" (ngSubmit)="f.form.valid && onSubmit(f.value)" #f="ngForm" novalidate>
         <mat-form-field>
           <input matInput type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Email" required email />
           <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
@@ -50,14 +47,14 @@
           <input matInput type="password" class="form-control" name="validatePassword" #validatePassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && validatePassword.invalid }" placeholder="Repeat password" required compare="password" ngModel/>
           <div *ngIf="f.submitted && validatePassword.invalid" class="invalid-feedback">
             <h3 *ngIf="validatePassword.errors.required">Repeat password is required</h3>
-            <h3 *ngIf="validatePassword.errors.compare">Passwords do not match</h3>
+            <h3 *ngIf="!validatePassword.errors.required && validatePassword.errors.compare">Passwords do not match</h3>
           </div>
         </mat-form-field>
         <button mat-raised-button color="primary" >Sign Up</button>
       </form>
     </mat-card>
   </div>
-  </div>
+</div>
 
 
 
