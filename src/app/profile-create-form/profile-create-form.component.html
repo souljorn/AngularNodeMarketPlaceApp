@@ -4,7 +4,7 @@
         <mat-card>
         <h1> Create Profile</h1>
         <div>
-          <img class="profile rounded mx-auto d-block" [src]= "imageFilename != null || user.image!= null || (selectedFile == null && user.image == null)  ? userImage : '../../assets/genericImage.png'">
+          <img class="profile rounded mx-auto d-block" [src]= "imageFilename != null || user!= null || (selectedFile != null && user != null) ||( user !=null && user.image !=null) ? userImage : '../../assets/genericImage.png'">
         </div>
          <form #f="ngForm" action="/upload"  (ngSubmit)="onSubmit(f.value)" method="POST"
               enctype="multipart/form-data">
