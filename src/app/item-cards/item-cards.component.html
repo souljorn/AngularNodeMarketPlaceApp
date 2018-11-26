@@ -31,7 +31,7 @@
         <img id= "img" src="{{getItem == null ? imageLink : (imageLink + getItem.image)}}">
         <h5>Price: ${{getItem == null ? "" : getItem.price}}</h5>
       </div>
-      <app-googlemap></app-googlemap>
+      <app-googlemap *ngIf="getItem" [currentItem]="mapData"  ></app-googlemap>
       <div class="modal-footer">
         <button mat-raised-button color="primary"  data-dismiss="modal">Close</button>
       </div>

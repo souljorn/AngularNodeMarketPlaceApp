@@ -48,9 +48,12 @@ export class ProfileCreateFormComponent implements OnInit {
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       console.log("loading user profile");
       this.user = res;
-      if(this.user){
+      if(this.user != null && this.user.image !=null){
       this.userImage = "http://localhost:8080/api/image/" + this.user.image;
       console.log(this.user.image);
+      }
+      else{
+        this.userImage = '../../assets/genericImage.png'
       }
     })
   }

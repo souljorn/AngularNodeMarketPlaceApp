@@ -10,6 +10,9 @@ export class CompareValidatorDirective implements Validator{
   @Input('compare') controlNameToCompare: string;
 
   validate(c: AbstractControl):ValidationErrors | null {
+    if(c.value === null || c.value.length === 0){
+      return null;
+    }
     const controlToCompare = c.root.get(this.controlNameToCompare);
     if(controlToCompare){
       const subscription: Subscription = controlToCompare.valueChanges.subscribe(()=>{

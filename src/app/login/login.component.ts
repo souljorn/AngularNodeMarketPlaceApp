@@ -1,11 +1,12 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
 import {AuthenticationService} from '../auth.service';
 import { first } from 'rxjs/operators';
 import {AppComponent} from '../app.component';
 import {UserService} from '../user.service';
 import {Accounts} from '../Accounts';
+import { AES } from 'crypto-ts';
+import sha256, { Hash, HMAC } from "fast-sha256";
 
 
 @Component({
@@ -37,8 +38,12 @@ export class LoginComponent implements OnInit {
   }
 
   // Call to the Login Rest API to get a Token
-  loginUser(form: NgForm) {
+  loginUser(form) {
+    console.log(form);
     console.log(form.value);
+
+    if(form.value == null)
+      form = {value: form};
 
     // Calling the authentication service
     this.authenticationService.login(form.value.email, form.value.password).pipe(first())
@@ -67,10 +72,16 @@ export class LoginComponent implements OnInit {
     let user = new Accounts();
     console.log('user email is ' + ngForm.email)
     console.log('user password is ' + ngForm.password)
+    const salt = Math.random().toString(36).substring(4,12);
+    const encryptedPassword = AES.encrypt(ngForm.password, salt).toString();
+    console.log('Hashed password is ' + encryptedPassword)
+    user.salt = salt;
+    console.log('The salt is ' + user.salt)
     user.email = ngForm.email;
-    user.password = ngForm.password;
+    user.password = salt + encryptedPassword;
     console.log('user email is ' + user.email)
     console.log('user password is ' + user.password)
+
     this.userService.createUser(user).pipe(first())
       .subscribe(
         res => {
