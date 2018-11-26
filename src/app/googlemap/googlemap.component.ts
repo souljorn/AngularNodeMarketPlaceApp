@@ -1,38 +1,18 @@
-import {Component, DoCheck, Input, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { MouseEvent } from '@agm/core';
-import {Item} from '../Item';
 
 @Component({
   selector: 'app-googlemap',
   templateUrl: './googlemap.component.html',
   styleUrls: ['./googlemap.component.css']
 })
-export class GooglemapComponent implements OnInit, DoCheck {
+export class GooglemapComponent {
   // google maps zoom level
   zoom: number = 14;
 
   // initial center position for the map
   lat: number = 29.6493;
   lng: number = -82.3440;
-
-//allows child component to get data from parent component
-  @Input() currentItem: Item;
-
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-
-  }
-  ngDoCheck(){
-    console.log("item data" + this.currentItem.description);
-    console.log("item data" + this.currentItem.address);
-    console.log("item data" + this.currentItem.address2);
-    console.log("item data" + this.currentItem.city);
-    console.log("item data" + this.currentItem.state);
-    console.log("item data" + this.currentItem.zip);
-}
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
