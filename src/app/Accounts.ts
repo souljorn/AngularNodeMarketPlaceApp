@@ -4,6 +4,7 @@ export class Accounts {
   lastname:string;
   password: string;
   image: string;
+  salt: string;
   itemsPurchased:any;
   itemsSold: any;
 }
