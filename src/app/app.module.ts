@@ -36,6 +36,7 @@ import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
+import { ChatComponent } from './chat/chat.component';
 
 
  @NgModule({
@@ -55,7 +56,8 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
     ItemPageComponent,
     MessengerComponentComponent,
     GooglemapComponent,
-    CompareValidatorDirective
+    CompareValidatorDirective,
+    ChatComponent
 
   ],
   imports: [

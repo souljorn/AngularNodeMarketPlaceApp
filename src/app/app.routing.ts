@@ -10,6 +10,7 @@ import {UploadItemComponent} from './upload-item/upload-item.component';
 import {GooglemapComponent} from './googlemap/googlemap.component';
 import {ItemPageComponent} from './item-page/item-page.component';
 import {MessengerComponentComponent} from './messenger-component/messenger-component.component';
+import {ChatComponent} from './chat/chat.component';
 
 // This is where all the routes are set
 // canActivate[AuthGuard] blocks any route from any user that is not logged in
@@ -24,6 +25,8 @@ const appRoutes: Routes = [
   { path: 'itemPage', component: ItemPageComponent},
   { path: 'messenger', component: MessengerComponentComponent},
   { path: 'map', component:GooglemapComponent},
+  { path: 'chat', component:ChatComponent},
+
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

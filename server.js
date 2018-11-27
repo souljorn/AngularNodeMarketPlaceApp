@@ -1,3 +1,5 @@
+const databaseStore = require('./controllers/message');
+const message = require('./model/message');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -5,13 +7,12 @@ const http = require('http');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
-
-
 //config
 const config = require('./config'); // get our config file
 mongoose.connect(config.db.uri); // connect to database
 //Export express app for other files to use
 const app = module.exports = express();
+
 app.set('superSecret', config.secret); // secret variable
 app.set('URI', config.db.uri); // URI variable
 
@@ -46,7 +47,26 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || config.port;
 app.set('port', port);
 
-const server = http.createServer(app);
+const server = module.exports = http.createServer(app);
 
 server.listen(port, () => console.log(`Running on localhost:${port}`));
+const io = require('socket.io')(server);
+//Websockets for messaging
+io.on('connection', (socket) => {
+
+  console.log('user connected');
+
+  socket.on('disconnect', function() {
+    console.log('user disconnected');
+  });
+
+  socket.on('add-message', (message) => {
+    io.emit('message', { type: 'new-message', message});
+    // Function above that stores the message in the database
+    console.log("socket emit" + message.sender + " " + message.content);
+    databaseStore(message);
+  });
+
+});
+
 
