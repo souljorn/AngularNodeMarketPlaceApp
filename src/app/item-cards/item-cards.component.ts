@@ -13,10 +13,11 @@ import {FilterItemsPipe} from "../filter-items.pipe";
   templateUrl: './item-cards.component.html',
   styleUrls: ['./item-cards.component.css'],
 })
-export class ItemCardsComponent implements OnInit {
+export class ItemCardsComponent implements OnInit{
 
   items: Array<Item>;
   getItem: Item;
+  mapData: Item;
   image: File;
   initial: boolean = true;
   message: string = "";
@@ -44,6 +45,7 @@ export class ItemCardsComponent implements OnInit {
 
     if(this.getItem == null)
       this.imageLink = '';
+
     else
       this.imageLink = 'http://localhost:8080/api/image';
 
@@ -54,8 +56,10 @@ export class ItemCardsComponent implements OnInit {
     this.getItem = itm;
     if(this.getItem == null)
       this.imageLink = '';
-    else
+    else{
       this.imageLink = 'http://localhost:8080/api/image/';
+      this.mapData = this.getItem;
+    }
   }
   getItemImage(filename : string){
    this.imageService.getImage(filename).pipe().subscribe(res => this.image = res);

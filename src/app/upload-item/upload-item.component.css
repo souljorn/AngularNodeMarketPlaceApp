@@ -10,11 +10,7 @@
   width: 140%;
 
 }
-#itemPicture{
-  margin-bottom: 5px;
-  margin-top: 10px;
-  border: 1px solid black;
-}
+
 .insideBorder{
   margin-left: 20%;
   margin-bottom: 5%;
@@ -97,3 +93,10 @@ max-width: 220px;
   margin-right: auto;
 
 } */
+
+#itemPicture{
+  margin-bottom: 5px;
+  margin-top: 10px;
+  border: 1px solid black;
+  max-width: 400px;
+}
