@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
   sendItem() {
     const arr = [this.title, this.description, this.image];
     return arr;
-
   }
   ngOnInit() {
     this.auth.verifyUser().pipe(first()).subscribe(res => {

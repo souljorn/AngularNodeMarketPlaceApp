@@ -1,21 +1,28 @@
 
-    <div class="row">
-    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
-      <div class="thumbnail"  (click) = "currItem(item)"  >
-        <img src="http://localhost:8080/api/image/{{item.image}}">
-        <div class="caption">
 
-          <h4>{{item.title}}</h4>
-          <h5>{{item.price | currency}}</h5>
+<div class = "input-group">
+  <input type="text" size = 70  [(ngModel)]="title" id = "searchDscr" placeholder="Description">
+  <input type="text" size = 70 id = "searchPlc" placeholder="Location" >
+</div>
 
+  <div class="row">
+    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items | filterItems: title">
 
-          <p>{{item.description}}</p>
+      <div class ="thumbnail" (click) = "currItem(item)">
+        <img id= "img2" src="http://localhost:8080/api/image/{{item.image}}">
+
+        <div id = "htmlCard" class="caption">
+
+          <h4 id = "htmlTitle">{{item == null ? "" : item.title}}</h4>
+          <h5 id = "htmlPrice">{{item == null ? "" : item.price | currency}}</h5>
+
+          <p id = "htmlDescr">{{item == null ? "" : item.description}}</p>
           <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">View Details</button>
-
         </div>
+       </div>
       </div>
     </div>
-    </div>
+
 
 
 <div class ="modal fade" data-backdrop="static" data-keyboard="false"  id= "modal" >

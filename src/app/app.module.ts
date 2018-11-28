@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginSuccessComponent } from './login-success/login-success.component';
 import { routing} from './app.routing';
+
 import { HomeComponent } from './home/home.component';
 import { JwtInterceptor} from './jwt.interceptor';
 import { AuthGuard } from './auth.guard';
@@ -26,7 +27,6 @@ import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { MessengerComponentComponent } from './messenger-component/messenger-component.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { AgmCoreModule } from '@agm/core';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -36,6 +36,9 @@ import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
+import {FilterItemsPipe} from './filter-items.pipe';
+
+import { HttpModule } from '@angular/http';
 
 
  @NgModule({
@@ -55,7 +58,8 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
     ItemPageComponent,
     MessengerComponentComponent,
     GooglemapComponent,
-    CompareValidatorDirective
+    CompareValidatorDirective,
+    FilterItemsPipe
 
   ],
   imports: [
@@ -83,7 +87,8 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     UserService,
-    ItemService
+    ItemService,
+    FilterItemsPipe
   ],
   bootstrap: [AppComponent]
 })

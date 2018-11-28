@@ -25,3 +25,13 @@
 #img{
   max-width: 500px;
 }
+.input-group{
+  display: inline-block;
+  margin-top: 15px;
+}
+#searchDscr{
+  display: inline-block;
+}
+#searchPlc{
+  display: inline-block;
+}
