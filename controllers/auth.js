@@ -2,6 +2,7 @@ const express = require('express');
 const app = require('../server.js');
 const jwt = require('jsonwebtoken');
 const Accounts   = require('../model/accounts'); // get our mongoose model
+var CryptoTS = require("crypto-ts");
 let token;
 
 //*************************Auth Api**************************************************
@@ -15,13 +16,24 @@ exports.login = (req, res, next) => {
     .exec()
     .then(account => {
       //if the user doesn't exits fail
+      console.log("if the user doesn't exits fail");
       if(!account){
         console.log("user failed");
         return res.status(401).json({
           message: 'Auth Failed'
         });
       }
-      if(req.body.password != account.password){
+      console.log("req.body.password: " + req.body.password);
+      console.log("Salt: " + account.salt);
+      const passw = req.body.password + '';
+      const salty = account.salt + ''
+      const encryptedPassword = passw + salty;
+      console.log("encryptedPassword: " + encryptedPassword);
+      const check = CryptoTS.AES.encrypt(passw, salty).toString();
+      console.log("check: " + check);
+      console.log("correct encryptedPassword: " + account.password);
+      console.log("In here");
+      if(encryptedPassword !== account.password + ''){
         console.log("password failed");
         return res.status(401).json({
           message: 'Auth Failed'
@@ -29,12 +41,11 @@ exports.login = (req, res, next) => {
       }
       console.log(req.body.password);
       console.log(account.password);
-
-      if(req.body.password == account.password){
+      if(encryptedPassword === account.password + ''){
         console.log("password found");
 
         console.log("account email: " + account.email);
-        console.log("account password: " + account.password);
+        console.log("password is right: " + account.password);
 
         // if user is found and password is right
         // create a token with only our given payload

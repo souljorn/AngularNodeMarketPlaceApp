@@ -73,12 +73,14 @@ export class LoginComponent implements OnInit {
     console.log('user email is ' + ngForm.email)
     console.log('user password is ' + ngForm.password)
     const salt = Math.random().toString(36).substring(4,12);
-    const encryptedPassword = AES.encrypt(ngForm.password, salt).toString();
+    const encryptedPassword = AES.encrypt(ngForm.password + '', salt + '').toString();
     console.log('Hashed password is ' + encryptedPassword)
+    const again = AES.encrypt(ngForm.password + '', salt + '').toString();
+    console.log('Hashed password is ' + again)
     user.salt = salt;
     console.log('The salt is ' + user.salt)
     user.email = ngForm.email;
-    user.password = salt + encryptedPassword;
+    user.password = ngForm.password + salt;
     console.log('user email is ' + user.email)
     console.log('user password is ' + user.password)
 

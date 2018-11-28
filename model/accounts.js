@@ -19,6 +19,10 @@ module.exports = mongoose.model('accounts', new Schema({
     type: String,
     required: true
   },
+  salt: {
+    type: String,
+    required: true
+  },
   items_purchased: Array,
   items_sold: Array,
   image: String
