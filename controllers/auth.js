@@ -2,7 +2,7 @@ const express = require('express');
 const app = require('../server.js');
 const jwt = require('jsonwebtoken');
 const Accounts   = require('../model/accounts'); // get our mongoose model
-var CryptoTS = require("crypto-ts");
+var CryptoJS = require("crypto-js");
 let token;
 
 //*************************Auth Api**************************************************
@@ -23,17 +23,43 @@ exports.login = (req, res, next) => {
           message: 'Auth Failed'
         });
       }
-      console.log("req.body.password: " + req.body.password);
-      console.log("Salt: " + account.salt);
-      const passw = req.body.password + '';
-      const salty = account.salt + ''
-      const encryptedPassword = passw + salty;
-      console.log("encryptedPassword: " + encryptedPassword);
-      const check = CryptoTS.AES.encrypt(passw, salty).toString();
-      console.log("check: " + check);
-      console.log("correct encryptedPassword: " + account.password);
+      console.log("req.body.password: You are here " + req.body.password);
+
+
+      var keySize = 256;
+      var iterations = 100;
+
+      var password = "Secret Password";
+      function decrypt (transitmessage, pass) {
+        var salt = CryptoJS.enc.Hex.parse(transitmessage.substr(0, 32));
+        var iv = CryptoJS.enc.Hex.parse(transitmessage.substr(32, 32))
+        var encrypted = transitmessage.substring(64);
+
+        var key = CryptoJS.PBKDF2(pass, salt, {
+          keySize: keySize/32,
+          iterations: iterations
+        });
+
+        var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+          iv: iv,
+          padding: CryptoJS.pad.Pkcs7,
+          mode: CryptoJS.mode.CBC
+
+        })
+        return decrypted;
+      }
+      console.log("but");
+      var decrypted = decrypt(account.password + '', password);
+      console.log("decrypted" + decrypted)
+      console.log("decryptedtostring" + decrypted.toString())
+      console.log("decrypted base64" + decrypted.toString(CryptoJS.enc.Base64))
+      console.log("decrypted utf8" + decrypted.toString(CryptoJS.enc.Utf8))
+      let encryptedPassword = decrypted.toString(CryptoJS.enc.Utf8)
+
       console.log("In here");
-      if(encryptedPassword !== account.password + ''){
+
+
+      if(encryptedPassword !== req.body.password + ''){
         console.log("password failed");
         return res.status(401).json({
           message: 'Auth Failed'
@@ -41,7 +67,7 @@ exports.login = (req, res, next) => {
       }
       console.log(req.body.password);
       console.log(account.password);
-      if(encryptedPassword === account.password + ''){
+      if(encryptedPassword === req.body.password + ''){
         console.log("password found");
 
         console.log("account email: " + account.email);

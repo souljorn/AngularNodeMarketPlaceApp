@@ -6,7 +6,7 @@ import {AppComponent} from '../app.component';
 import {UserService} from '../user.service';
 import {Accounts} from '../Accounts';
 import { AES } from 'crypto-ts';
-import sha256, { Hash, HMAC } from "fast-sha256";
+import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -70,19 +70,45 @@ export class LoginComponent implements OnInit {
     console.log(ngForm);
     console.log('ngForm ends')
     let user = new Accounts();
-    console.log('user email is ' + ngForm.email)
-    console.log('user password is ' + ngForm.password)
-    const salt = Math.random().toString(36).substring(4,12);
-    const encryptedPassword = AES.encrypt(ngForm.password + '', salt + '').toString();
-    console.log('Hashed password is ' + encryptedPassword)
-    const again = AES.encrypt(ngForm.password + '', salt + '').toString();
-    console.log('Hashed password is ' + again)
-    user.salt = salt;
-    console.log('The salt is ' + user.salt)
+    user.salt = 'notEmpty';
     user.email = ngForm.email;
-    user.password = ngForm.password + salt;
-    console.log('user email is ' + user.email)
-    console.log('user password is ' + user.password)
+    user.password = ngForm.password + user.salt;
+
+    var keySize = 256;
+    var iterations = 100;
+
+    var message = ngForm.password;
+    var password = "Secret Password";
+
+
+    function encrypt (msg, pass) {
+      var salt = CryptoJS.lib.WordArray.random(128/8);
+      console.log(salt)
+
+      var key = CryptoJS.PBKDF2(pass, salt, {
+        keySize: keySize/32,
+        iterations: iterations
+      });
+
+      var iv = CryptoJS.lib.WordArray.random(128/8);
+
+      var encrypted = CryptoJS.AES.encrypt(msg, key, {
+        iv: iv,
+        padding: CryptoJS.pad.Pkcs7,
+        mode: CryptoJS.mode.CBC
+
+      });
+
+      // salt, iv will be hex 32 in length
+      // append them to the ciphertext for use  in decryption
+      var transitmessage = salt.toString()+ iv.toString() + encrypted.toString();
+      console.log(transitmessage)
+      return transitmessage;
+    }
+
+    var encrypted = encrypt(message, password);
+    console.log(encrypted)
+    user.password = encrypted
 
     this.userService.createUser(user).pipe(first())
       .subscribe(
