@@ -29,7 +29,7 @@ exports.login = (req, res, next) => {
       var keySize = 256;
       var iterations = 100;
 
-      var password = "Secret Password";
+      var password = account.salt + '';
       function decrypt (transitmessage, pass) {
         var salt = CryptoJS.enc.Hex.parse(transitmessage.substr(0, 32));
         var iv = CryptoJS.enc.Hex.parse(transitmessage.substr(32, 32))

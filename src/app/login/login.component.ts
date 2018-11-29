@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     console.log(ngForm);
     console.log('ngForm ends')
     let user = new Accounts();
-    user.salt = 'notEmpty';
+    user.salt = Math.random().toString(36).substring(4,12);
     user.email = ngForm.email;
     user.password = ngForm.password + user.salt;
 
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
     var iterations = 100;
 
     var message = ngForm.password;
-    var password = "Secret Password";
+    var password = user.salt;
 
 
     function encrypt (msg, pass) {
