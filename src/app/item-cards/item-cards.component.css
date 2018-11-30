@@ -29,6 +29,10 @@
   display: inline-block;
   margin-top: 15px;
 }
+.input-group h3{
+  color: red;
+  font-size: 12px;
+}
 #searchDscr{
   display: inline-block;
 }

@@ -19,7 +19,9 @@ export class ItemCardsComponent implements OnInit{
   getItem: Item;
   mapData: Item;
   image: File;
-  initial: boolean = true;
+  address: string = "";
+  isInptDesc: boolean = false;
+  isInptAddr: boolean = false;
   message: string = "";
   imageLink: string = 'http://localhost:8080/api/image';
   title = "";
@@ -39,9 +41,7 @@ export class ItemCardsComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-
     this.itemService.getItems().pipe(first()).subscribe(res => this.items = res,);
-
 
     if(this.getItem == null)
       this.imageLink = '';
@@ -49,10 +49,26 @@ export class ItemCardsComponent implements OnInit{
     else
       this.imageLink = 'http://localhost:8080/api/image';
 
-
   }
+  checkInptDescr(e){
 
+    if(e.target.value.toString() == ""){
+      this.isInptDesc = false;
+    }
+    else{
+      this.isInptDesc = true;
+    }
+  }
+  checkInptAddr(e){
+    if(e.target.value.toString() == ""){
+      this.isInptAddr = false;
+    }
+    else{
+      this.isInptAddr = true;
+    }
+  }
   currItem(itm) {
+
     this.getItem = itm;
     if(this.getItem == null)
       this.imageLink = '';
