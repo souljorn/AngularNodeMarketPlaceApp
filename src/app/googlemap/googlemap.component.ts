@@ -26,12 +26,12 @@ export class GooglemapComponent implements OnInit, DoCheck {
 
   }
   ngDoCheck(){
-    console.log("item data" + this.currentItem.description);
+    /*console.log("item data" + this.currentItem.description);
     console.log("item data" + this.currentItem.address);
     console.log("item data" + this.currentItem.address2);
     console.log("item data" + this.currentItem.city);
     console.log("item data" + this.currentItem.state);
-    console.log("item data" + this.currentItem.zip);
+    console.log("item data" + this.currentItem.zip);*/
 }
 
   clickedMarker(label: string, index: number) {
