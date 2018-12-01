@@ -25,10 +25,10 @@ errorMessage;
 
   ngOnInit() {
     this.message.content = '';
-    // this.connection = this.messageService.getMessages().subscribe(message => {
-    //   this.messages.push(message);
-    //
-    // })
+    this.connection = this.messageService.getMessages().subscribe(message => {
+      this.messages.push(message);
+      console.log("Getting Messages" + message);
+    })
     this.getUser();
 
   }

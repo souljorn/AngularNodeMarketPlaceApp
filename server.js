@@ -50,8 +50,9 @@ app.set('port', port);
 const server = module.exports = http.createServer(app);
 
 server.listen(port, () => console.log(`Running on localhost:${port}`));
+
+//----------Websockets for messaging---------------------------
 const io = require('socket.io')(server);
-//Websockets for messaging
 io.on('connection', (socket) => {
 
   console.log('user connected');
