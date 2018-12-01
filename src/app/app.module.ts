@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginSuccessComponent } from './login-success/login-success.component';
 import { routing} from './app.routing';
-
 import { HomeComponent } from './home/home.component';
 import { JwtInterceptor} from './jwt.interceptor';
 import { AuthGuard } from './auth.guard';
@@ -36,6 +35,7 @@ import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
+import { ChatComponent } from './chat/chat.component';
 import {FilterItemsPipe} from './filter-items.pipe';
 
 import { HttpModule } from '@angular/http';
@@ -58,6 +58,8 @@ import { HttpModule } from '@angular/http';
     ItemPageComponent,
     MessengerComponentComponent,
     GooglemapComponent,
+    CompareValidatorDirective,
+    ChatComponent,
     CompareValidatorDirective,
     FilterItemsPipe
 

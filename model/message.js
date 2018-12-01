@@ -3,28 +3,20 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // set up a mongoose model and pass it using module.exports
-module.exports = mongoose.model('items', new Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  description: {
+module.exports = mongoose.model('Message', new Schema({
+  sender: {
     type: String,
     required: true
   },
-  price: {
+  content: {
+    type: String,
+  },
+  timeCreated: {
+    type: Date,
+    default: Date.now
+  },
+  conversationID: {
     type: Number,
     required: true
-  },
-  seller: {
-    type: String,
-    required: true
-  },
-  category:{
-    type: String
-  },
-  image: {
-    type: String
   }
 }));

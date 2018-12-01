@@ -45,6 +45,8 @@
     "npm": "^6.4.1",
     "popper.js": "^1.14.4",
     "rxjs": "~6.3.3",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "latest",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

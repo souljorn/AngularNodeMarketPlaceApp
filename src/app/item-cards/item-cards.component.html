@@ -1,29 +1,52 @@
 
 
-<div class = "input-group">
-  <input type="text" size = 70 (keyup)="checkInptDescr($event)" [(ngModel)]="title" id = "searchDscr" placeholder="Description">
-  <input type="text" size = 70  (keyup)="checkInptAddr($event)"[(ngModel)]="address" id = "searchPlc" placeholder="Location" >
-  <h3 *ngIf="(isInptDesc== true) && (isInptAddr == true); else elseBlock">*Please only search by either Description or by Address. </h3>
-  <ng-template #elseBlock>  </ng-template>
+
+<div class="row">
+  <!--<div class="col-md-3 side-bar">-->
+  <!--<div class="vertical-menu">-->
+  <!--<a href="#" class="active" color ="primary">Shop For</a>-->
+  <!--<a href="#">Tickets</a>-->
+  <!--<a href="#">Textbooks</a>-->
+  <!--<a href="#">Apartment/Dorm</a>-->
+  <!--<a href="#">Miscellaneous</a>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <div class = "input-group input-group-sm m-6">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="Keywords">SEARCH</span>
+    </div>
+    <input class="input" type="text" size = 70 (keyup)="checkInptDescr($event)" [(ngModel)]="title" id = "searchDscr"
+           aria-label="Small" placeholder="Description" aria-describedby="inputGroup-sizing-sm">
+  </div>
+
+  <div class = "input-group input-group-sm m-6">
+    <input class="none" type="text" size = 70  (keyup)="checkInptAddr($event)"[(ngModel)]="address" id = "searchPlc" placeholder="Location" >
+    <h3 *ngIf="(isInptDesc== true) && (isInptAddr == true); else elseBlock">*Please only search by either Description or by Address. </h3>
+    <ng-template #elseBlock>  </ng-template>
+  </div>
 </div>
 
-    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items | filterItems: title: address">
 
-      <div class ="thumbnail" (click) = "currItem(item)">
-        <img id= "img2" src="http://localhost:8080/api/image/{{item.image}}">
 
-        <div id = "htmlCard" class="caption">
+<div class="custom-container">
+  <div class="col-xs-10 col-sm-4 col-md-4 col-lg-3 col-xlg-2" *ngFor="let item of items | filterItems: title: address">
 
-          <h4 id = "htmlTitle">{{item == null ? "" : item.title}}</h4>
-          <h5 id = "htmlPrice">{{item == null ? "" : item.price | currency}}</h5>
-          <h6>{{item.address+' '+item.address2+' '+item.city+' '+item.state}}</h6>
+    <div class ="thumbnail" (click) = "currItem(item)">
+      <img id= "img2" src="http://localhost:8080/api/image/{{item.image}}">
 
-          <p id = "htmlDescr">{{item == null ? "" : item.description}}</p>
-          <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">View Details</button>
-        </div>
-       </div>
+      <div id = "htmlCard" class="caption">
+
+        <h4 id = "htmlTitle">{{item == null ? "" : item.title}}</h4>
+        <h5 id = "htmlPrice">{{item == null ? "" : item.price | currency}}</h5>
+        <h6>{{item.address+' '+item.address2+' '+item.city+' '+item.state}}</h6>
+
+        <p id = "htmlDescr">{{item == null ? "" : item.description}}</p>
+        <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">View Details</button>
       </div>
-
+    </div>
+  </div>
+</div>
 
 <div class ="modal fade" data-backdrop="static" data-keyboard="false"  id= "modal" >
   <div class="modal-dialog" >
@@ -48,3 +71,4 @@
 </div>
 
 
+<!--</div>-->
