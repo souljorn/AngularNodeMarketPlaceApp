@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginSuccessComponent } from './login-success/login-success.component';
 import { routing} from './app.routing';
-import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { JwtInterceptor} from './jwt.interceptor';
 import { AuthGuard } from './auth.guard';
@@ -18,7 +17,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { ItemComponent } from './item/item.component';
 import { UserService } from './user.service';
 import { ItemService } from './item.service';
-import { SearchItemByTitleComponent } from './search-item-by-title/search-item-by-title.component';
 import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
 import { UploadItemComponent } from './upload-item/upload-item.component';
@@ -36,6 +34,7 @@ import { MatInputModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
+import { ChatComponent } from './chat/chat.component';
 import {FilterItemsPipe} from './filter-items.pipe';
 
 import { HttpModule } from '@angular/http';
@@ -50,7 +49,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     HomeComponent,
     ProfileComponent,
     ItemComponent,
-    SearchItemByTitleComponent,
     ItemCardsComponent,
     UploadItemComponent,
     ProfileCreateFormComponent,
@@ -59,6 +57,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ItemPageComponent,
     MessengerComponentComponent,
     GooglemapComponent,
+    CompareValidatorDirective,
+    ChatComponent,
     CompareValidatorDirective,
     FilterItemsPipe,
     AdminDashboardComponent
@@ -72,7 +72,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     MatFormFieldModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
