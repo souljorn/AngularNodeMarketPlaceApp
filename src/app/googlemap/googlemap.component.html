@@ -1,19 +1,32 @@
-<h1>Angular Google Maps (AGM) Demo</h1>
-<p><a href="https://angular-maps.com/" target="_blank">Official Website</a></p>
-<form (ngSubmit)="showLocation()">
-  <input type="text" [(ngModel)]="address" required [ngModelOptions]="{standalone: true}">
-  <button type="submit">Show Location</button>
-</form>
 
 <agm-map
-  [latitude]="location?.lat"
-  [longitude]="location?.lng"
-  [zoom]="8"
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
   [disableDefaultUI]="false"
-  [zoomControl]="false">
+  [zoomControl]="false"
+  (mapClick)="mapClicked($event)">
+
   <agm-marker
-      [latitude]="location?.lat"
-      [longitude]="location?.lng">
+    *ngFor="let m of markers; let i = index"
+    (markerClick)="clickedMarker(m.label, i)"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [label]="m.label"
+    [markerDraggable]="m.draggable"
+    (dragEnd)="markerDragEnd(m, $event)">
+
+    <agm-info-window>
+      <strong>InfoWindow content</strong>
+    </agm-info-window>
+
   </agm-marker>
+
+  <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+              [radius]="5000"
+              [fillColor]="'red'"
+              [circleDraggable]="true"
+              [editable]="true">
+  </agm-circle>
+
 </agm-map>
-<p *ngIf="loading">Loading...</p>
