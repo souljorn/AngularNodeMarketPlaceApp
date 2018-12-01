@@ -17,7 +17,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { ItemComponent } from './item/item.component';
 import { UserService } from './user.service';
 import { ItemService } from './item.service';
-import { SearchItemByTitleComponent } from './search-item-by-title/search-item-by-title.component';
 import { ItemCardsComponent } from './item-cards/item-cards.component';
 import { ProfileCreateFormComponent } from './profile-create-form/profile-create-form.component';
 import { UploadItemComponent } from './upload-item/upload-item.component';
@@ -38,7 +37,6 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
 import { ChatComponent } from './chat/chat.component';
 import {FilterItemsPipe} from './filter-items.pipe';
 
-import { HttpModule } from '@angular/http';
 
 
  @NgModule({
@@ -49,7 +47,6 @@ import { HttpModule } from '@angular/http';
     HomeComponent,
     ProfileComponent,
     ItemComponent,
-    SearchItemByTitleComponent,
     ItemCardsComponent,
     UploadItemComponent,
     ProfileCreateFormComponent,

@@ -1,6 +1,7 @@
 <!--<div *ngFor="let message of messages">-->
   <!--{{message.date| date: 'M/d/yy'}} {{message.date| date: 'h:mm:ss'}}: {{message.text}}-->
 <!--</div>-->
-
+<div class="wrapper">
 <input #chatInput (keyup.enter)="sendMessage()" [(ngModel)]="message.content" />
 <button (click)="sendMessage()">Send</button>
+</div>
