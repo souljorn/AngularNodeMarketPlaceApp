@@ -1,14 +1,17 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, NgModule, OnInit, Output, Pipe} from '@angular/core';
 import {ItemService} from '../item.service';
-import {first} from 'rxjs/operators';
+import {first, timeInterval} from 'rxjs/operators';
 import {Item} from '../Item';
 import {ImageService} from '../image.service';
 import {AppComponent} from '../app.component';
+import {HomeComponent} from "../home/home.component";
+import {FilterItemsPipe} from "../filter-items.pipe";
+
 
 @Component({
   selector: 'app-item-cards',
   templateUrl: './item-cards.component.html',
-  styleUrls: ['./item-cards.component.css']
+  styleUrls: ['./item-cards.component.css'],
 })
 export class ItemCardsComponent implements OnInit{
 
@@ -16,26 +19,30 @@ export class ItemCardsComponent implements OnInit{
   getItem: Item;
   mapData: Item;
   image: File;
-  show: boolean = false;
+  address: string = "";
+  isInptDesc: boolean = false;
+  isInptAddr: boolean = false;
   message: string = "";
-  arr: Array<string>
   imageLink: string = 'http://localhost:8080/api/image';
+  title = "";
 
 
   @Output() titleEvent = new EventEmitter<string>();
   @Output() descEvent = new EventEmitter<string>();
   @Output() imgEvent = new EventEmitter<File>();
-  title: string;
+
+
 
   constructor(
     private itemService: ItemService,
     private imageService: ImageService,
-    private appComp: AppComponent
-
+    private homeComp: HomeComponent,
+    private appComp: AppComponent,
   ) { }
 
   ngOnInit() {
-    this.itemService.getItems().pipe(first()).subscribe(res => this.items = res);
+    this.itemService.getItems().pipe(first()).subscribe(res => this.items = res,);
+
     if(this.getItem == null)
       this.imageLink = '';
 
@@ -43,9 +50,26 @@ export class ItemCardsComponent implements OnInit{
       this.imageLink = 'http://localhost:8080/api/image';
 
   }
+  checkInptDescr(e){
 
-  currItem(item) {
-    this.getItem = item;
+    if(e.target.value.toString() == ""){
+      this.isInptDesc = false;
+    }
+    else{
+      this.isInptDesc = true;
+    }
+  }
+  checkInptAddr(e){
+    if(e.target.value.toString() == ""){
+      this.isInptAddr = false;
+    }
+    else{
+      this.isInptAddr = true;
+    }
+  }
+  currItem(itm) {
+
+    this.getItem = itm;
     if(this.getItem == null)
       this.imageLink = '';
     else{

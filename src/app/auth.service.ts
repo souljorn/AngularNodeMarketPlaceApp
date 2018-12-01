@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {Item} from './Item';
 import {Observable} from 'rxjs';
+import { AES } from 'crypto-ts';
 
 
 
@@ -18,6 +18,7 @@ export class AuthenticationService {
 
   // Login method that gets a token and then sets the token in local storage
   login(email: string, password: string) {
+
     return this.http.post<any>(`/api/login`, { email: email, password: password })
       .pipe(map(user => {
 

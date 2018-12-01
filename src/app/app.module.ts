@@ -26,7 +26,6 @@ import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { MessengerComponentComponent } from './messenger-component/messenger-component.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { AgmCoreModule } from '@agm/core';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -37,6 +36,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { CompareValidatorDirective } from './shared/compare-validator.directive';
 import { ChatComponent } from './chat/chat.component';
+import {FilterItemsPipe} from './filter-items.pipe';
+
+import { HttpModule } from '@angular/http';
 
 
  @NgModule({
@@ -57,7 +59,9 @@ import { ChatComponent } from './chat/chat.component';
     MessengerComponentComponent,
     GooglemapComponent,
     CompareValidatorDirective,
-    ChatComponent
+    ChatComponent,
+    CompareValidatorDirective,
+    FilterItemsPipe
 
   ],
   imports: [
@@ -85,7 +89,8 @@ import { ChatComponent } from './chat/chat.component';
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     UserService,
-    ItemService
+    ItemService,
+    FilterItemsPipe
   ],
   bootstrap: [AppComponent]
 })

@@ -18,7 +18,8 @@ exports.createAccount = (req, res) => {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       password: req.body.password,
-      image: req.body.image
+      image: req.body.image,
+      salt: req.body.salt
     }
   );
 
@@ -66,7 +67,8 @@ exports.updateUser = (req,res) => {
     {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      image: req.body.image
+      image: req.body.image,
+      salt: req.body.salt
     });
   console.log("Thos is the object getting sent to mongo");
   console.log(data);

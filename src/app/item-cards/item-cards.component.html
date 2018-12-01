@@ -1,21 +1,28 @@
 
-    <div class="row">
-    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items">
-      <div class="thumbnail"  (click) = "currItem(item)"  >
-        <img src="http://localhost:8080/api/image/{{item.image}}">
-        <div class="caption">
 
-          <h4>{{item.title}}</h4>
-          <h5>{{item.price | currency}}</h5>
+<div class = "input-group">
+  <input type="text" size = 70 (keyup)="checkInptDescr($event)" [(ngModel)]="title" id = "searchDscr" placeholder="Description">
+  <input type="text" size = 70  (keyup)="checkInptAddr($event)"[(ngModel)]="address" id = "searchPlc" placeholder="Location" >
+  <h3 *ngIf="(isInptDesc== true) && (isInptAddr == true); else elseBlock">*Please only search by either Description or by Address. </h3>
+  <ng-template #elseBlock>  </ng-template>
+</div>
 
+    <div class="col-xs-18 col-sm-6 col-md-4" *ngFor="let item of items | filterItems: title: address">
 
-          <p>{{item.description}}</p>
+      <div class ="thumbnail" (click) = "currItem(item)">
+        <img id= "img2" src="http://localhost:8080/api/image/{{item.image}}">
+
+        <div id = "htmlCard" class="caption">
+
+          <h4 id = "htmlTitle">{{item == null ? "" : item.title}}</h4>
+          <h5 id = "htmlPrice">{{item == null ? "" : item.price | currency}}</h5>
+          <h6>{{item.address+' '+item.address2+' '+item.city+' '+item.state}}</h6>
+
+          <p id = "htmlDescr">{{item == null ? "" : item.description}}</p>
           <button mat-raised-button color="primary" data-toggle="modal" data-target="#modal">View Details</button>
-
         </div>
+       </div>
       </div>
-    </div>
-    </div>
 
 
 <div class ="modal fade" data-backdrop="static" data-keyboard="false"  id= "modal" >
@@ -30,6 +37,7 @@
         <h5>{{getItem == null ? "" : getItem.description}}</h5>
         <img id= "img" src="{{getItem == null ? imageLink : (imageLink + getItem.image)}}">
         <h5>Price: ${{getItem == null ? "" : getItem.price}}</h5>
+        <h6>{{getItem == null ? "" : getItem.address+' '+getItem.address2+' '+getItem.city+' '+ getItem.state}}</h6>
       </div>
       <app-googlemap *ngIf="getItem" [currentItem]="mapData"  ></app-googlemap>
       <div class="modal-footer">
