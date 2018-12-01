@@ -69,7 +69,7 @@ export class UploadItemComponent implements OnInit {
         console.log(res); // handle event here
         this.imageObject = res;
         this.imageFilename = this.imageObject.file.filename;
-        this.itemImage =  "http://localhost:8080/api/image/" + this.imageFilename;
+        this.itemImage =  "/api/image/" + this.imageFilename;
       });
   }
 
