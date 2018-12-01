@@ -20,6 +20,7 @@ export class MessageService {
 
   public getMessages() {
     let observable = new Observable(observer => {
+     console.log("Fetching all Messages");
       this.socket = io(this.url);
       this.socket.on('message', (message: Message) => {
         observer.next(message);

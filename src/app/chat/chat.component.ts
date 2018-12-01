@@ -27,7 +27,7 @@ errorMessage;
     this.message.content = '';
     this.connection = this.messageService.getMessages().subscribe(message => {
       this.messages.push(message);
-      console.log("Getting Messages" + message);
+      console.log("Getting Messages" + this.messages.length);
     })
     this.getUser();
 

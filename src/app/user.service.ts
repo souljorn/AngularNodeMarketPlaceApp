@@ -30,6 +30,12 @@ export class UserService {
     console.log(account);
     return this._http.post<Accounts>('api/accounts/' + email, account);
   }
+
+  deleteUser(account : Accounts):Observable<Accounts>{
+    console.log("Delete User Service");
+    console.log(account);
+    return this._http.delete<Accounts>('api/accounts/delete' +  account);
+  }
 }
 
 
