@@ -15,6 +15,7 @@
   background-color: #0b1e4ad9;
   color: #fff;
   transition: background-color 0.3s, border 0.3s, color 0.3s;
+
 }
 
 .btn-full:hover, .btn-full:active
@@ -39,3 +40,85 @@
 #searchPlc{
   display: inline-block;
 }
+
+.thumbnail img{
+  width: 100%;
+  height: 23vw;
+  object-fit: cover;
+  max-height: 280px;
+}
+.thumbnail{
+  height: 38vw;
+  padding: 8px;
+  margin: 8px;
+  max-height: 480px;
+  min-height: fit-content;
+}
+
+@media (max-width: 1200px){
+  div {
+    background-color: yellow;
+  }
+  .thumbnail img{
+    width: 48vw;
+    height: 43vh;
+    object-fit: cover;
+    max-height: 280px;
+    min-height: 200px;
+  }
+  .thumbnail{
+    height: 50vw;
+    padding: 12px;
+    margin:20px;
+    min-height: fit-content;
+  }
+
+}
+
+@media (max-width: 700px){
+  div {
+    background-color: green;
+  }
+  .thumbnail img{
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+    max-height: 280px;
+  }
+  .thumbnail{
+    height: 45vw;
+    min-height: fit-content;
+  }
+
+}
+@media (max-width: 400px){
+  div {
+    background-color: red;
+  }
+  .thumbnail img{
+    height: 47vw;
+    object-fit: cover;
+    max-height: 280px;
+  }
+  .thumbnail{
+    height: 60vw;
+    min-height: fit-content;
+  }
+
+}
+
+.custom-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  padding-top: 20px;
+}
+
+thumbnail .caption {
+  padding: 20px;
+}
+
+
+
