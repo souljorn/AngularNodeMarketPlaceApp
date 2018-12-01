@@ -10,6 +10,7 @@ import {UploadItemComponent} from './upload-item/upload-item.component';
 import {GooglemapComponent} from './googlemap/googlemap.component';
 import {ItemPageComponent} from './item-page/item-page.component';
 import {MessengerComponentComponent} from './messenger-component/messenger-component.component';
+import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 import {ChatComponent} from './chat/chat.component';
 
 // This is where all the routes are set
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'loginSuccess', component: LoginSuccessComponent},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'item', component: ItemComponent },
+  {path: 'admin', component:AdminDashboardComponent },
   { path: 'profileCreate', component: ProfileCreateFormComponent },
   { path: 'itemCreate', component: UploadItemComponent},
   { path: 'itemPage', component: ItemPageComponent},

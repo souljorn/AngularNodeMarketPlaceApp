@@ -37,6 +37,8 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
 import { ChatComponent } from './chat/chat.component';
 import {FilterItemsPipe} from './filter-items.pipe';
 
+import { HttpModule } from '@angular/http';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
  @NgModule({
@@ -58,7 +60,8 @@ import {FilterItemsPipe} from './filter-items.pipe';
     CompareValidatorDirective,
     ChatComponent,
     CompareValidatorDirective,
-    FilterItemsPipe
+    FilterItemsPipe,
+    AdminDashboardComponent
 
   ],
   imports: [
