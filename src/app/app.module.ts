@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginSuccessComponent } from './login-success/login-success.component';
 import { routing} from './app.routing';
-
+import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { JwtInterceptor} from './jwt.interceptor';
 import { AuthGuard } from './auth.guard';
@@ -39,6 +39,7 @@ import { CompareValidatorDirective } from './shared/compare-validator.directive'
 import {FilterItemsPipe} from './filter-items.pipe';
 
 import { HttpModule } from '@angular/http';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
  @NgModule({
@@ -59,7 +60,8 @@ import { HttpModule } from '@angular/http';
     MessengerComponentComponent,
     GooglemapComponent,
     CompareValidatorDirective,
-    FilterItemsPipe
+    FilterItemsPipe,
+    AdminDashboardComponent
 
   ],
   imports: [
@@ -70,6 +72,7 @@ import { HttpModule } from '@angular/http';
     MatFormFieldModule,
     MatButtonModule,
     MatToolbarModule,
+    MatIconModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

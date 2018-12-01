@@ -9,6 +9,7 @@
     <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
     <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
     <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
+    <li><a  routerLink="/admin">Admin </a></li>
 
   </ul>
 </mat-toolbar>
