@@ -5,6 +5,7 @@ ul {
   overflow: hidden;
 
 }
+
 .title{
   margin-right: 5px;
 }
@@ -24,8 +25,8 @@ li a {
   color: #141939;
 }
 
-
 li a:hover {
+
   border: 1px solid #a1aade;
   color: #000;
 

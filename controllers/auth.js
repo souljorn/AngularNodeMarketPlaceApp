@@ -53,7 +53,7 @@ exports.login = (req, res, next) => {
       console.log("decrypted" + decrypted)
       console.log("decryptedtostring" + decrypted.toString())
       console.log("decrypted base64" + decrypted.toString(CryptoJS.enc.Base64))
-      console.log("decrypted utf8" + decrypted.toString(CryptoJS.enc.Utf8))
+      /*console.log("decrypted utf8" + decrypted.toString(CryptoJS.enc.Utf8))*/
       let encryptedPassword = decrypted.toString(CryptoJS.enc.Utf8)
 
       console.log("In here");
