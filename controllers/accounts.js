@@ -79,6 +79,26 @@ exports.updateUser = (req,res) => {
       if (err) return res.send(500, { error: err });
       return res.status(311).json(doc);
     })
-  };
+  }
 
 
+exports.deleteUser = (req,res) => {
+  console.log("attempting to delete user");
+
+  console.log(req.body.email);
+
+  Accounts.findOneAndDelete( {email: req.body.email}, function(err, doc) {
+
+    //Return a document of user
+    if (!err) {
+      console.log( 'notification!');
+      return res.status(311).json(doc);
+    }
+
+    //If error don't delete
+    else {
+      console.log( 'error!' + err);
+      return res.send(500, { error: err });
+    }
+  });
+}

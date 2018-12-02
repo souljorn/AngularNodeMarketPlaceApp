@@ -23,7 +23,7 @@ export class ItemCardsComponent implements OnInit{
   isInptDesc: boolean = false;
   isInptAddr: boolean = false;
   message: string = "";
-  imageLink: string = 'http://localhost:8080/api/image';
+  imageLink: string = '/api/image';
   title = "";
 
 
@@ -47,7 +47,7 @@ export class ItemCardsComponent implements OnInit{
       this.imageLink = '';
 
     else
-      this.imageLink = 'http://localhost:8080/api/image';
+      this.imageLink = '/api/image';
 
   }
   checkInptDescr(e){
@@ -73,7 +73,7 @@ export class ItemCardsComponent implements OnInit{
     if(this.getItem == null)
       this.imageLink = '';
     else{
-      this.imageLink = 'http://localhost:8080/api/image/';
+      this.imageLink = '/api/image/';
       this.mapData = this.getItem;
     }
   }

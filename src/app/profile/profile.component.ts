@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
       this.user = res;
       if(this.user){
       console.log(this.user);
-      this.userImage = "http://localhost:8080/api/image/" + this.user.image;
+      this.userImage = "/api/image/" + this.user.image;
       }
     })
   }

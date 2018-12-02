@@ -1,0 +1,22 @@
+h1{
+  font-size: 35px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 35px;
+}
+p{
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 35px;
+}
+.list-group{
+  margin-left: 35px;
+  width: 600px;
+}
+h2{
+  color: #3f51b5;
+  font-size: 14px;
+  display: inline;
+}
+
+

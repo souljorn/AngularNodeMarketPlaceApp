@@ -49,7 +49,7 @@ export class ProfileCreateFormComponent implements OnInit {
       console.log("loading user profile");
       this.user = res;
       if(this.user != null && this.user.image !=null){
-      this.userImage = "http://localhost:8080/api/image/" + this.user.image;
+      this.userImage = "/api/image/" + this.user.image;
       console.log(this.user.image);
       }
       else{
@@ -75,7 +75,7 @@ export class ProfileCreateFormComponent implements OnInit {
         console.log(res);
         this.imageObject = res;
         this.imageFilename = this.imageObject.file.filename;
-        this.userImage = "http://localhost:8080/api/image/" + this.imageFilename;
+        this.userImage = "/api/image/" + this.imageFilename;
         // handle event here
 
       });
