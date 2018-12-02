@@ -10,25 +10,30 @@ ul {
   margin-right: 5px;
 }
 li {
-  float: left;
+  float: top;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+  margin: 10px;
+  display: inline-block;
+  padding: 10px 15px;
   text-decoration: none;
+  border: 1px solid #5566c3;
+  border-radius: 70px;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+  background-color: transparent;
+  color: #141939;
 }
 
 li a:hover {
-  transition: all 0.5s ease;
-  background-color: #FF8C00;
+
+  border: 1px solid #a1aade;
+  color: #000;
 
 }
 
 nav ul{
-  padding-left: 50px;
+  padding-left: 12px;
 }
 
 .body{
@@ -36,3 +41,21 @@ nav ul{
   padding: 0;
 }
 
+.navbar{
+  background-color: #5566c3;
+}
+
+.navbar-header
+{
+  margin: 5px;
+}
+
+.navbar-toggle
+{
+  margin: 5px 0px;
+}
+
+.navbar-brand {
+  color: #141939;
+  padding: 15px 10px;
+}
