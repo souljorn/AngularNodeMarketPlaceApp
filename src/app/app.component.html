@@ -1,17 +1,26 @@
 
-<mat-toolbar color="primary">
-    <h1 class="title">Gator Market Place  </h1>
-    <img src="../assets/florida-gators.png"  style = "height: 50% ">
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
-    <li><a routerLink="/profileCreate" *ngIf="loggedIn">Edit Profile</a></li>
-    <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
-    <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
-    <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
-
-  </ul>
-</mat-toolbar>
+<nav class="navbar navbar-default bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Gator Market Place </a>
+      <img src="../assets/florida-gators.png"  style = "max-height: 50px ">
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/profile" *ngIf="loggedIn">Profile</a></li>
+        <li><a routerLink="/profileCreate" *ngIf="loggedIn">Edit Profile</a></li>
+        <li><a routerLink="/itemCreate" *ngIf="loggedIn">Upload Item</a></li>
+        <li><a routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+        <li><a routerLink="/login" (click)="logout()" *ngIf="loggedIn">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
 
