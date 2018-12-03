@@ -25,6 +25,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.authService.verifyUser().pipe(first()).subscribe(res => {
+      if(this.user) {
+        this.user.firstname = '';
+        this.user.lastname = '';
+        this.user.image = '';
+      }
       this.response = res;
       this.email = this.response.decoded.email;
       console.log(this.response);
@@ -36,7 +41,7 @@ export class ProfileComponent implements OnInit {
   loadUserProfile(){
     this.userService.getUser(this.email).pipe(first()).subscribe(res => {
       this.user = res;
-      if(this.user){
+      if(this.user && this.user.image){
       console.log(this.user);
       this.userImage = "/api/image/" + this.user.image;
       }
