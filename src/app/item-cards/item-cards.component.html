@@ -16,12 +16,16 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="Keywords">SEARCH</span>
     </div>
-    <input class="input" type="text" size = 70 (keyup)="checkInptDescr($event)" [(ngModel)]="title" id = "searchDscr"
+    <mat-form-field>
+    <input matInput class="input" type="text" size = 70 (keyup)="checkInptDescr($event)" [(ngModel)]="title" id = "searchDscr"
            aria-label="Small" placeholder="Description" aria-describedby="inputGroup-sizing-sm">
+    </mat-form-field>
   </div>
 
   <div class = "input-group input-group-sm m-6">
-    <input class="none" type="text" size = 70  (keyup)="checkInptAddr($event)"[(ngModel)]="address" id = "searchPlc" placeholder="Location" >
+<mat-form-field>
+    <input matInput class="none" type="text" size = 70  (keyup)="checkInptAddr($event)"[(ngModel)]="address" id = "searchPlc" placeholder="Location" >
+  </mat-form-field>
     <h3 *ngIf="(isInptDesc== true) && (isInptAddr == true); else elseBlock">*Please only search by either Description or by Address. </h3>
     <ng-template #elseBlock>  </ng-template>
   </div>
