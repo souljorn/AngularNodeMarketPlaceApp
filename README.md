@@ -1,4 +1,4 @@
-# CEN Group Project
+# MEAN Stack Marketplace
 
 ## GettingStarted
 
